@@ -1,0 +1,44 @@
+[gd_resource type="InventoryDatabase" load_steps=13 format=3 uid="uid://cu2gatoa2l5pi"]
+
+[ext_resource type="Texture2D" uid="uid://c5ibe2fe4y8vw" path="res://body_parts/heads/green_head/texture.png" id="1_sdwos"]
+[ext_resource type="Resource" uid="uid://ci645dkx1jn71" path="res://body_parts/heads/basic_head.tres" id="2_2rvpa"]
+[ext_resource type="PackedScene" uid="uid://be3vf67lhwgjy" path="res://body_parts/heads/green_head/scene.tscn" id="2_nvulq"]
+[ext_resource type="Texture2D" uid="uid://ba4uga2f6vby4" path="res://body_parts/legs/green_leg/texture.png" id="2_sisx8"]
+[ext_resource type="Texture2D" uid="uid://dl7uixp8m1mys" path="res://body_parts/torsos/green_torso/texture.png" id="3_2rvpa"]
+[ext_resource type="PackedScene" uid="uid://ihfnh7x6rxo7" path="res://body_parts/legs/green_leg/scene.tscn" id="5_o44o7"]
+[ext_resource type="Resource" uid="uid://dlj2ju4nelx2x" path="res://body_parts/legs/basic_leg.tres" id="6_k11fv"]
+[ext_resource type="PackedScene" uid="uid://dxbrlpf8oeijb" path="res://body_parts/torsos/green_torso/scene.tscn" id="8_ylv8h"]
+[ext_resource type="Resource" uid="uid://clg5467j0wmja" path="res://body_parts/torsos/basic_torso.tres" id="9_xw3ex"]
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_kclfh"]
+id = "green_head"
+max_stack = 64
+name = "Green Head"
+icon = ExtResource("1_sdwos")
+properties = {
+&"body_part": ExtResource("2_2rvpa"),
+&"scene": ExtResource("2_nvulq")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_x7snd"]
+id = "green_leg"
+max_stack = 64
+name = "Green Leg"
+icon = ExtResource("2_sisx8")
+properties = {
+&"body_part": ExtResource("6_k11fv"),
+&"scene": ExtResource("5_o44o7")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_ywykn"]
+id = "green_torso"
+max_stack = 64
+name = "Green Torso"
+icon = ExtResource("3_2rvpa")
+properties = {
+&"body_part": ExtResource("9_xw3ex"),
+&"scene": ExtResource("8_ylv8h")
+}
+
+[resource]
+items = Array[ItemDefinition]([SubResource("ItemDefinition_kclfh"), SubResource("ItemDefinition_x7snd"), SubResource("ItemDefinition_ywykn")])

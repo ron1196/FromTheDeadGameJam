@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BodyPart" load_steps=2 format=3 uid="uid://dlj2ju4nelx2x"]
+
+[ext_resource type="Script" uid="uid://c7xa5ufq3jfy8" path="res://body_parts/body_part_attributes.gd" id="1_mlpcl"]
+
+[resource]
+script = ExtResource("1_mlpcl")
+intelligence = 0
+attack = 1
+speed = 7
+health = 0
+metadata/_custom_type_script = "uid://c7xa5ufq3jfy8"

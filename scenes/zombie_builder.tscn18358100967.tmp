@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=3 uid="uid://l51muedm4qwc"]
+
+[ext_resource type="Script" uid="uid://p5n4qnpctfi3" path="res://scripts/inventory_test.gd" id="1_hsli3"]
+[ext_resource type="Script" uid="uid://doe5ge3hl621u" path="res://scripts/control_node2d.gd" id="1_wffvg"]
+[ext_resource type="InventoryDatabase" uid="uid://cu2gatoa2l5pi" path="res://inventory_system/database.tres" id="2_x2bsc"]
+[ext_resource type="Script" uid="uid://c2wvvbphqg43w" path="res://scripts/zombie_creator.gd" id="3_8oncs"]
+[ext_resource type="Script" uid="uid://ctu3vfl53whl3" path="res://addons/inventory-system-demos/ui/grid/grid_inventory_ui.gd" id="3_gylgl"]
+[ext_resource type="PackedScene" uid="uid://cxevor61mdhtc" path="res://addons/inventory-system-demos/ui/grid/grid_slot_ui.tscn" id="4_li03x"]
+[ext_resource type="PackedScene" uid="uid://ch1ixmsfcaf5c" path="res://addons/inventory-system-demos/ui/grid/grid_item_stack_ui.tscn" id="5_wiayr"]
+
+[node name="ZombieBuilder" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hsli3")
+
+[node name="Preview" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="MarginButtons" type="MarginContainer" parent="Preview"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Buttons" type="VBoxContainer" parent="Preview/MarginButtons"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Build" type="Button" parent="Preview/MarginButtons/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Build
+"
+
+[node name="Random" type="Button" parent="Preview/MarginButtons/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Random"
+
+[node name="Reset" type="Button" parent="Preview/MarginButtons/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reset"
+
+[node name="ControlZombie" type="Control" parent="Preview"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_wffvg")
+
+[node name="Zombie" type="Node2D" parent="Preview/ControlZombie"]
+position = Vector2(500, 100)
+scale = Vector2(5, 5)
+script = ExtResource("3_8oncs")
+metadata/_edit_group_ = true
+
+[node name="MarginStats" type="MarginContainer" parent="Preview"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+
+[node name="Stats" type="VBoxContainer" parent="Preview/MarginStats"]
+layout_mode = 2
+
+[node name="Intelligence" type="HBoxContainer" parent="Preview/MarginStats/Stats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Preview/MarginStats/Stats/Intelligence"]
+layout_mode = 2
+text = "Intelligence: "
+
+[node name="Value" type="Label" parent="Preview/MarginStats/Stats/Intelligence"]
+layout_mode = 2
+text = "0"
+
+[node name="Attack" type="HBoxContainer" parent="Preview/MarginStats/Stats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Preview/MarginStats/Stats/Attack"]
+layout_mode = 2
+text = "Attack: "
+
+[node name="Value" type="Label" parent="Preview/MarginStats/Stats/Attack"]
+layout_mode = 2
+text = "0"
+
+[node name="Speed" type="HBoxContainer" parent="Preview/MarginStats/Stats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Preview/MarginStats/Stats/Speed"]
+layout_mode = 2
+text = "Speed: "
+
+[node name="Value" type="Label" parent="Preview/MarginStats/Stats/Speed"]
+layout_mode = 2
+text = "0"
+
+[node name="Health" type="HBoxContainer" parent="Preview/MarginStats/Stats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Preview/MarginStats/Stats/Health"]
+layout_mode = 2
+text = "Health: "
+
+[node name="Value" type="Label" parent="Preview/MarginStats/Stats/Health"]
+layout_mode = 2
+text = "0"
+
+[node name="InventoryUI" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("3_gylgl")
+grid_slot_ui_scene = ExtResource("4_li03x")
+grid_item_stack_ui_scene = ExtResource("5_wiayr")
+inventory_path = NodePath("../Inventory")
+grid_slot_size = Vector2(64, 64)
+item_spacing = 1
+metadata/_custom_type_script = "uid://ctu3vfl53whl3"
+
+[node name="Inventory" type="GridInventory" parent="."]
+size = Vector2i(8, 3)
+database = ExtResource("2_x2bsc")
+
+[connection signal="pressed" from="Preview/MarginButtons/Buttons/Reset" to="." method="_on_reset_pressed"]
+[connection signal="resized" from="Preview/ControlZombie" to="Preview/ControlZombie" method="_on_resized"]
+[connection signal="inventory_item_activated" from="InventoryUI" to="." method="_on_inventory_ui_inventory_item_activated"]
+[connection signal="selection_changed" from="InventoryUI" to="." method="_on_inventory_ui_selection_changed"]
