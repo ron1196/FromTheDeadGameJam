@@ -1,25 +1,45 @@
 extends VBoxContainer
 
+@export var spawn_unit_node: Node
+@export var base_area: Node2D
+
 @onready var inventory: GridInventory
 @onready var inventory_panel: GridInventoryUI = $InventoryPanel
-
-@onready var zombie_preview: Zombie = $HeaderPanel/ZombiePreviewContainer/ZombiePreview
-@onready var attribute_intelligence_value_label: Label = $HeaderPanel/StatsMargin/Stats/Intelligence/Value
-@onready var attribute_attack_value_label: Label = $HeaderPanel/StatsMargin/Stats/Attack/Value
-@onready var attribute_speed_value_label: Label = $HeaderPanel/StatsMargin/Stats/Speed/Value
-@onready var attribute_health_value_label: Label = $HeaderPanel/StatsMargin/Stats/Health/Value
+@onready var zombie_preview: Zombie = %ZombiePreview
+@onready var attributes_ui: AttributesUI = %AttributesUI
 
 var selected_items: Array[ItemDefinition] = []
+var name_gen: NameGenerator = NameGenerator.new()
 
 
 func _ready() -> void:
 	inventory = get_tree().get_first_node_in_group("player_inventory")
-	visible = false
+	zombie_preview.attributes_changed.connect(attributes_ui.on_zombie_attributes_changed)
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("build"):
-		visible = !visible;
+func _is_valid_zombie() -> bool:
+	return not selected_items.is_empty()
+
+
+func _on_build_pressed() -> void:
+	if not _is_valid_zombie():
+		return
+
+	var zombie: Zombie = zombie_preview.duplicate()
+
+	selected_items.clear()
+	zombie_preview.clear()
+
+	var base_area_rect: Rect2 = base_area.rect
+	var random_pos_in_area: Vector2 = Vector2(
+		randf_range(base_area_rect.position.x, base_area_rect.size.x),
+		randf_range(base_area_rect.position.y, base_area_rect.size.y))
+
+	zombie.position = base_area.global_position + random_pos_in_area
+	zombie.scale = Vector2(1, 1)
+	zombie.is_static = false;
+	zombie.name = name_gen.new_name()[randi() % 2]
+	spawn_unit_node.add_child(zombie)
 
 
 func _on_reset_pressed() -> void:
@@ -28,8 +48,6 @@ func _on_reset_pressed() -> void:
 
 	selected_items.clear()
 	zombie_preview.clear()
-
-	_update_stats()
 
 
 func _on_inventory_item_selected() -> void:
@@ -51,16 +69,8 @@ func _on_inventory_item_selected() -> void:
 		push_error("No scene for item with id: " + str(item_stack_ui.stack.item_id))
 		return
 
+	if not zombie_preview.add_body_part(body_part_scene):
+		return
+
 	selected_items.append(item_body_part)
 	inventory.remove(item_stack.item_id)
-
-	zombie_preview.add_body_part(body_part_scene)
-	_update_stats()
-
-
-func _update_stats() -> void:
-	var attributes: BodyPartAttributes = zombie_preview.calculate_attributes()
-	attribute_intelligence_value_label.text = str(attributes.intelligence)
-	attribute_attack_value_label.text = str(attributes.attack)
-	attribute_speed_value_label.text = str(attributes.speed)
-	attribute_health_value_label.text = str(attributes.health)

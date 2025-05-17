@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ykqijxq7pup"]
+
+[ext_resource type="Script" uid="uid://bn3vgmritde17" path="res://scripts/components/sight_component.gd" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://b28p1mpj61n1p" path="res://assets/panda.png" id="1_md0e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+
+[node name="Enemy" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_md0e3")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visibility_layer = 3
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7p1mj")
+
+[node name="SightComponent" type="Area2D" parent="."]
+collision_layer = 8
+script = ExtResource("1_7p1mj")
+
+[node name="Vision" type="CollisionShape2D" parent="SightComponent"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_md0e3")
+
+[connection signal="area_entered" from="SightComponent" to="SightComponent" method="_on_sight_entered"]
+[connection signal="area_exited" from="SightComponent" to="SightComponent" method="_on_sight_exited"]

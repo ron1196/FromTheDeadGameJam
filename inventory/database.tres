@@ -1,4 +1,4 @@
-[gd_resource type="InventoryDatabase" load_steps=13 format=3 uid="uid://cu2gatoa2l5pi"]
+[gd_resource type="InventoryDatabase" load_steps=22 format=3 uid="uid://cu2gatoa2l5pi"]
 
 [ext_resource type="Texture2D" uid="uid://c5ibe2fe4y8vw" path="res://body_parts/heads/green_head/texture.png" id="1_sdwos"]
 [ext_resource type="Resource" uid="uid://ci645dkx1jn71" path="res://body_parts/heads/basic_head.tres" id="2_2rvpa"]
@@ -9,6 +9,12 @@
 [ext_resource type="Resource" uid="uid://dlj2ju4nelx2x" path="res://body_parts/legs/basic_leg.tres" id="6_k11fv"]
 [ext_resource type="PackedScene" uid="uid://dxbrlpf8oeijb" path="res://body_parts/torsos/green_torso/scene.tscn" id="8_ylv8h"]
 [ext_resource type="Resource" uid="uid://clg5467j0wmja" path="res://body_parts/torsos/basic_torso.tres" id="9_xw3ex"]
+[ext_resource type="Texture2D" uid="uid://bve4l4j825xra" path="res://body_parts/torsos/panda_torso/panda_torso.png" id="10_pkojt"]
+[ext_resource type="PackedScene" uid="uid://dwnyjx0pcux7s" path="res://body_parts/torsos/panda_torso/panda_torso.tscn" id="11_6kpvc"]
+[ext_resource type="Texture2D" uid="uid://bmkgyhoaer4oe" path="res://body_parts/legs/panda_leg/panda_leg.png" id="11_8d3pi"]
+[ext_resource type="Texture2D" uid="uid://cjtd8g6dotypj" path="res://body_parts/heads/panda_head/panda_head.png" id="12_m7cq7"]
+[ext_resource type="PackedScene" uid="uid://dr5b4cdpdvedx" path="res://body_parts/legs/panda_leg/panda_leg.tscn" id="13_e0wer"]
+[ext_resource type="PackedScene" uid="uid://ducpuxxiww13g" path="res://body_parts/heads/panda_head/panda_head.tscn" id="13_m7cq7"]
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_kclfh"]
 id = "green_head"
@@ -40,5 +46,32 @@ properties = {
 &"scene": ExtResource("8_ylv8h")
 }
 
+[sub_resource type="ItemDefinition" id="ItemDefinition_8gp4u"]
+id = "panda_torso"
+max_stack = 64
+name = "Panda Torso"
+icon = ExtResource("10_pkojt")
+properties = {
+&"scene": ExtResource("11_6kpvc")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_vryd6"]
+id = "panda_leg"
+max_stack = 64
+name = "Panda Leg"
+icon = ExtResource("11_8d3pi")
+properties = {
+&"scene": ExtResource("13_e0wer")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_6kpvc"]
+id = "panda_head"
+max_stack = 64
+name = "Panda Head"
+icon = ExtResource("12_m7cq7")
+properties = {
+&"scene": ExtResource("13_m7cq7")
+}
+
 [resource]
-items = Array[ItemDefinition]([SubResource("ItemDefinition_kclfh"), SubResource("ItemDefinition_x7snd"), SubResource("ItemDefinition_ywykn")])
+items = Array[ItemDefinition]([SubResource("ItemDefinition_kclfh"), SubResource("ItemDefinition_x7snd"), SubResource("ItemDefinition_ywykn"), SubResource("ItemDefinition_8gp4u"), SubResource("ItemDefinition_vryd6"), SubResource("ItemDefinition_6kpvc")])

@@ -431,7 +431,7 @@ func _on_item_clicked(grid_item_stack_ui) -> void:
 	if !is_instance_valid(stack):
 			return
 
-	if Input.is_action_pressed("ui_inventory_transfer"):
+	if false && Input.is_action_pressed("ui_inventory_transfer"):
 		var stack_position: Vector2i = inventory.get_stack_position(stack)
 		#TODO make rotation with R key or mouse wheel
 		var _is_rotated: bool = inventory.is_stack_rotated(stack)
