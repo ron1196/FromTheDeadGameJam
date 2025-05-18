@@ -38,12 +38,15 @@ func handle_movement(delta: float) -> void:
 		return # Block input when UI is open
 
 	# Keyboard/gamepad movement
-	_input_direction = Input.get_vector("left", "right", "up", "down")
+	if Globals.options_input_scrolling:
+		_input_direction = Input.get_vector("left", "right", "up", "down")
+	else:
+		_input_direction = Vector2.ZERO
 
 	var movement = _input_direction * pan_speed * delta
 
 	# Edge scrolling (only if mouse is at screen edge)
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+	if Globals.options_edge_scrolling and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 		movement += get_edge_scroll_direction() * pan_speed * delta
 
 	# Apply movement

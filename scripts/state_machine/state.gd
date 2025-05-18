@@ -1,15 +1,15 @@
 extends Node
 class_name State
 
-var zombie: Unit
+var unit: Unit
 
 
 func change_state(new_state: State) -> void:
-	zombie.state_machine.current_state = new_state
+	unit.state_machine.current_state = new_state
 
 
-func init(_zombie: Zombie):
-	zombie = _zombie
+func init(_unit: Unit):
+	unit = _unit
 
 
 func enter() -> void:

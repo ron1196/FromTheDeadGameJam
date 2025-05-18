@@ -31,28 +31,28 @@ func enter() -> void:
 		change_state(idle_state)
 		return
 
-	zombie.nav_agent.velocity_computed.connect(_on_navigation_velocity_computed)
-	zombie.nav_agent.path_changed.connect(_on_path_changed)
+	unit.nav_agent.velocity_computed.connect(_on_navigation_velocity_computed)
+	unit.nav_agent.path_changed.connect(_on_path_changed)
 
-	zombie.nav_agent.target_position = target
+	unit.nav_agent.target_position = target
 
 
 func exit() -> void:
 	super()
-	zombie.nav_agent.velocity_computed.disconnect(_on_navigation_velocity_computed)
-	zombie.nav_agent.path_changed.disconnect(_on_path_changed)
+	unit.nav_agent.velocity_computed.disconnect(_on_navigation_velocity_computed)
+	unit.nav_agent.path_changed.disconnect(_on_path_changed)
 
 
 func update(delta: float) -> void:
-	if zombie.nav_agent.is_navigation_finished():
+	if unit.nav_agent.is_navigation_finished():
 		on_target_reached()
 
 	# Check if stuck (no progress for 1 second)
-	var distance_to_target: float = zombie.nav_agent.distance_to_target()
+	var distance_to_target: float = unit.nav_agent.distance_to_target()
 
-	if distance_to_target <= zombie.nav_agent.target_desired_distance * _reach_target_timer_scale:
+	if distance_to_target <= unit.nav_agent.target_desired_distance * _reach_target_timer_scale:
 		# Progress check - if we're not getting closer
-		if distance_to_target < zombie.nav_agent.distance_to_target():
+		if distance_to_target < unit.nav_agent.distance_to_target():
 			_reach_target_timer = 0.0 # Reset if making progress
 		else:
 			_reach_target_timer += delta
@@ -68,11 +68,11 @@ func physics_update(_delta: float) -> void:
 
 	if _frame_counter % _calculate_next_path_interval == 0:
 		_frame_counter = 0
-		_current_path_position = zombie.nav_agent.get_next_path_position()
+		_current_path_position = unit.nav_agent.get_next_path_position()
 
-	var direction = zombie.global_position.direction_to(_current_path_position)
+	var direction = unit.global_position.direction_to(_current_path_position)
 	direction = direction.normalized()
-	zombie.nav_agent.set_velocity(direction * zombie.get_speed())
+	unit.nav_agent.set_velocity(direction * unit.get_speed())
 
 
 func on_target_reached() -> void:
@@ -94,4 +94,4 @@ func _on_path_changed():
 func _on_navigation_velocity_computed(safe_velocity: Vector2) -> void:
 	if safe_velocity.length() > 0:
 		velocity = safe_velocity
-		zombie.position += velocity * get_physics_process_delta_time()
+		unit.position += velocity * get_physics_process_delta_time()

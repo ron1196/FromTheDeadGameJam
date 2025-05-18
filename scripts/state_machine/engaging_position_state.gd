@@ -20,7 +20,7 @@ func exit() -> void:
 func handle_input(event: InputEvent) -> void:
 	super(event)
 
-	var target_position: Vector2 = zombie.movable.get_target_position()
+	var target_position: Vector2 = unit.movable.get_target_position()
 
 	if target_position != Vector2.INF:
-		zombie.nav_agent.target_position = target_position
+		unit.nav_agent.target_position = target_position

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://chvfvtcch85ar"]
 
 [ext_resource type="Script" uid="uid://c2wvvbphqg43w" path="res://scripts/units/zombie/zombie.gd" id="1_1vlb3"]
-[ext_resource type="Texture2D" uid="uid://cp3b8ndbbs5as" path="res://assets/selected.png" id="2_httt1"]
+[ext_resource type="PackedScene" uid="uid://dmxdvu6tfxlge" path="res://scenes/floating_damage_indicator.tscn" id="2_ida1p"]
 [ext_resource type="Script" uid="uid://b3fq4wf352f8o" path="res://scripts/components/hurtbox_component.gd" id="3_jjlcg"]
 [ext_resource type="Script" uid="uid://cxu570an015xh" path="res://scripts/state_machine/state_machine.gd" id="3_xepks"]
 [ext_resource type="Script" uid="uid://cn75cdxjfr23k" path="res://scripts/state_machine/idle_state.gd" id="4_4gx57"]
@@ -26,6 +26,7 @@ sight_component = NodePath("SightComponent")
 nav_agent = NodePath("Navigation")
 state_machine = NodePath("StateMachine")
 movable = NodePath("Movable")
+floating_damage_indicator_scene = ExtResource("2_ida1p")
 metadata/_edit_group_ = true
 
 [node name="HealthComponent" type="Node2D" parent="."]
@@ -44,10 +45,10 @@ metadata/_custom_type_script = "uid://b3fq4wf352f8o"
 [node name="Collision" type="CollisionShape2D" parent="HurtboxComponent"]
 visibility_layer = 3
 shape = SubResource("RectangleShape2D_aetfh")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
 
 [node name="SightComponent" type="Area2D" parent="."]
 unique_name_in_owner = true
-visible = false
 collision_layer = 2
 collision_mask = 4
 monitoring = false
@@ -55,14 +56,15 @@ monitorable = false
 script = ExtResource("8_3fthk")
 
 [node name="Collision" type="CollisionShape2D" parent="SightComponent"]
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_3fthk")
+debug_color = Color(0.211765, 0.615686, 0.337255, 0.490196)
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("default_state", "zombie")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("default_state", "unit")]
 unique_name_in_owner = true
 script = ExtResource("3_xepks")
 default_state = NodePath("Idle")
-zombie = NodePath("..")
+unit = NodePath("..")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("engaging_position_state", "engaging_target_state")]
 script = ExtResource("4_4gx57")
@@ -84,18 +86,11 @@ script = ExtResource("7_7pfmu")
 idle_state = NodePath("../Idle")
 engaging_position_state = NodePath("../EngagingPosition")
 
-[node name="SelectedShadow" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.784314)
-z_index = -1
-position = Vector2(0, 7)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_httt1")
-
 [node name="Navigation" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
 avoidance_enabled = true
 time_horizon_agents = 0.1
+avoidance_priority = 0.3
 debug_enabled = true
 
 [node name="Movable" type="Node2D" parent="."]

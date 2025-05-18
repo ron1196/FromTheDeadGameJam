@@ -30,7 +30,7 @@ func _on_attack_timer_timeout() -> void:
 
 
 func _get_attack_damage() -> float:
-	return attack_damage_base + zombie.attributes.attack * 2
+	return attack_damage_base + unit.attributes.attack * 2
 
 
 func enter() -> void:
@@ -54,7 +54,7 @@ func exit() -> void:
 func handle_input(event: InputEvent) -> void:
 	super.handle_input(event)
 
-	var target_position: Vector2 = zombie.movable.get_target_position()
+	var target_position: Vector2 = unit.movable.get_target_position()
 
 	if target_position != Vector2.INF:
 		engaging_position_state.target = target_position

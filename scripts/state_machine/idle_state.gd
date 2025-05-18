@@ -8,7 +8,7 @@ class_name IdleState
 func handle_input(event: InputEvent) -> void:
 	super.handle_input(event)
 
-	var target_position: Vector2 = zombie.movable.get_target_position()
+	var target_position: Vector2 = unit.movable.get_target_position()
 
 	if target_position != Vector2.INF:
 		engaging_position_state.target = target_position
@@ -17,12 +17,14 @@ func handle_input(event: InputEvent) -> void:
 
 func update(_delta: float) -> void:
 	super(_delta)
-	if zombie.sight_component.has_unit_in_sight():
-		var unit: Area2D = zombie.sight_component.find_closest_unit(zombie.global_position)
-		var distance: float = zombie.global_position.distance_to(unit.global_position)
 
-		if distance <= zombie.nav_agent.target_desired_distance * 3:
-			return
+	if unit.sight_component.has_unit_in_sight():
+		var closest_unit: Area2D = unit.sight_component.find_closest_unit(unit.global_position)
+		var distance: float = unit.global_position.distance_to(closest_unit.global_position)
 
-		engaging_target_state.target = unit
+		# Was here because of bug so I don't know
+		#if distance <= unit.nav_agent.target_desired_distance:
+			#return
+
+		engaging_target_state.target = closest_unit
 		change_state(engaging_target_state)

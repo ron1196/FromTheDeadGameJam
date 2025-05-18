@@ -1,7 +1,6 @@
 extends Unit
 class_name Zombie
 
-@onready var selected_shadow: Sprite2D = %SelectedShadow
 @onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 
 @export var speed: float = 700
@@ -9,8 +8,19 @@ class_name Zombie
 var body_parts: Array[BodyPart]
 
 
+func get_nodes_to_change_material() -> Array[Node2D]:
+	var nodes: Array[Node2D] = []
+
+	for part: BodyPart in body_parts:
+		for child in part.get_children():
+			if child as Sprite2D:
+				nodes.append(child)
+
+	return nodes
+
+
 func _ready():
-	selected_shadow.visible = false
+	super()
 
 	for child in get_children():
 		if child as BodyPart:
@@ -37,12 +47,10 @@ func disable_statute():
 
 
 func select() -> void:
-	selected_shadow.visible = true
 	(movable as ZombieMovable).select()
 
 
 func deselect() -> void:
-	selected_shadow.visible = false
 	(movable as ZombieMovable).deselect()
 
 
@@ -52,11 +60,7 @@ func _calculate_attributes() -> void:
 	for part in body_parts:
 		tmp.add(part.attributes)
 
-	if attributes != null && attributes.equals(tmp):
-		return
-
 	attributes = tmp
-	attributes_changed.emit(attributes)
 
 
 func add_body_part(scene: PackedScene) -> bool:

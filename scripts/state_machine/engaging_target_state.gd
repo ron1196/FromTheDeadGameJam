@@ -22,7 +22,7 @@ func exit() -> void:
 func handle_input(event: InputEvent) -> void:
 	super.handle_input(event)
 
-	var target_position: Vector2 = zombie.movable.get_target_position()
+	var target_position: Vector2 = unit.movable.get_target_position()
 
 	if target_position != Vector2.INF:
 		engaging_position_state.target = target_position

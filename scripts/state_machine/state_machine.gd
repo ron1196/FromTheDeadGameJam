@@ -10,25 +10,25 @@ var current_state: State:
 			return
 
 		if current_state != null:
-			if debug: print(zombie.name + " exit state " + current_state.name)
+			if debug: print(unit.name + " exit state " + current_state.name)
 			current_state.exit()
 
 		current_state = new_state
 
 		if current_state == null:
-			if debug: print(zombie.name + " enter state null")
+			if debug: print(unit.name + " enter state null")
 			return
 
-		if debug: print(zombie.name + " enter state " + current_state.name)
+		if debug: print(unit.name + " enter state " + current_state.name)
 		current_state.enter()
 
-@export var zombie: Unit
+@export var unit: Unit
 
 
 func _ready() -> void:
 	for state in get_children():
 		if state as State:
-			state.init(zombie)
+			state.init(unit)
 
 	current_state = default_state
 

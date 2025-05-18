@@ -27,6 +27,11 @@ func has_unit_in_sight() -> bool:
 	return !units.is_empty()
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action("ui_focus_next"):
+		print(units)
+
+
 func find_closest_unit(target: Vector2) -> Area2D:
 	var closest: Area2D = null
 	var min_distance: float = INF
