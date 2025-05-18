@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bn2lm2uhijfs3" path="res://body_parts/body_anchor.gd" id="4_k5cbw"]
 
 [node name="PandaHead" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5u8ro")
 body_type = 3
 attributes = ExtResource("2_jbk5s")

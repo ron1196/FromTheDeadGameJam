@@ -1,61 +1,59 @@
+extends Unit
 class_name Zombie
-extends Node2D
 
 @onready var selected_shadow: Sprite2D = %SelectedShadow
-@onready var nav_agent: NavigationAgent2D = %Navigation
-@onready var state_machine: StateMachine = %StateMachine
+@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 
 @export var speed: float = 700
-@export var is_static: bool = false
 
 var body_parts: Array[BodyPart]
-var attributes: BodyPartAttributes
-var is_selected: bool = false
-
-signal attributes_changed(attributes: BodyPartAttributes)
 
 
 func _ready():
+	selected_shadow.visible = false
+
 	for child in get_children():
 		if child as BodyPart:
 			body_parts.append(child)
 
-	selected_shadow.visible = false
 	_calculate_attributes()
 
 
-func _physics_process(_delta: float) -> void:
-	pass
+func get_speed() -> float:
+	return speed
 
 
-func _on_navigation_finished():
-	pass
+## Make it only sprite, cancel all other loops / triggers / collisions
+func make_statute():
+	state_machine.disable()
+	hurtbox_component.disable()
+	sight_component.disable()
+
+
+func disable_statute():
+	state_machine.enable()
+	hurtbox_component.enable()
+	sight_component.enable()
 
 
 func select() -> void:
 	selected_shadow.visible = true
-	is_selected = true
+	(movable as ZombieMovable).select()
 
 
 func deselect() -> void:
 	selected_shadow.visible = false
-	is_selected = false
+	(movable as ZombieMovable).deselect()
 
 
 func _calculate_attributes() -> void:
 	var tmp: BodyPartAttributes = BodyPartAttributes.new()
 
 	for part in body_parts:
-		tmp.intelligence += part.attributes.intelligence
-		tmp.attack += part.attributes.attack
-		tmp.speed += part.attributes.speed
-		tmp.health += part.attributes.health
+		tmp.add(part.attributes)
 
-	if attributes != null && \
-		tmp.intelligence == attributes.intelligence && \
-		tmp.attack == attributes.attack && \
-		tmp.speed == attributes.speed && \
-		tmp.health == attributes.health: return
+	if attributes != null && attributes.equals(tmp):
+		return
 
 	attributes = tmp
 	attributes_changed.emit(attributes)
@@ -120,8 +118,8 @@ func _connect_to_body_part(part: BodyPart, connect_to: BodyPart) -> void:
 	var rotation_offset = PI + part_anchor.global_rotation - other_part_anchor.global_rotation
 	part.rotation = rotation_offset
 
-	var part_anchor_postion = other_part_anchor.global_position / other_part_anchor.global_scale
-	var other_part_anchor_postion = part_anchor.global_position / part_anchor.global_scale
+	var part_anchor_postion = other_part_anchor.global_position / scale
+	var other_part_anchor_postion = part_anchor.global_position / scale
 	part.position = part_anchor_postion - other_part_anchor_postion
 
 

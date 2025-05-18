@@ -37,9 +37,9 @@ func _on_build_pressed() -> void:
 
 	zombie.position = base_area.global_position + random_pos_in_area
 	zombie.scale = Vector2(1, 1)
-	zombie.is_static = false;
 	zombie.name = name_gen.new_name()[randi() % 2]
 	spawn_unit_node.add_child(zombie)
+	zombie.disable_statute()
 
 
 func _on_reset_pressed() -> void:

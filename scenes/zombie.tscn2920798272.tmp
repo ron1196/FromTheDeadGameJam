@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://chvfvtcch85ar"]
 
-[ext_resource type="Script" uid="uid://c2wvvbphqg43w" path="res://scripts/units/zombie/zombie.gd" id="1_1vlb3"]
+[ext_resource type="Script" uid="uid://c2wvvbphqg43w" path="res://scripts/units/zombie.gd" id="1_1vlb3"]
 [ext_resource type="Texture2D" uid="uid://cp3b8ndbbs5as" path="res://assets/selected.png" id="2_httt1"]
 [ext_resource type="Script" uid="uid://b3fq4wf352f8o" path="res://scripts/components/hurtbox_component.gd" id="3_jjlcg"]
 [ext_resource type="Script" uid="uid://cxu570an015xh" path="res://scripts/state_machine/state_machine.gd" id="3_xepks"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bkg0uwo8txvr" path="res://scripts/state_machine/attacking_state.gd" id="7_7pfmu"]
 [ext_resource type="Script" uid="uid://bn3vgmritde17" path="res://scripts/components/sight_component.gd" id="8_3fthk"]
 [ext_resource type="Script" uid="uid://bty6wyn6n62kv" path="res://scripts/components/health_component.gd" id="9_aetfh"]
-[ext_resource type="Script" uid="uid://33gclwgoh7tv" path="res://scripts/units/zombie/zombie_movable.gd" id="11_iblsu"]
+[ext_resource type="Script" uid="uid://b048mlxmsen4p" path="res://scripts/interfaces/movable.gd" id="11_iblsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aetfh"]
 size = Vector2(35, 30)
@@ -25,7 +25,7 @@ health_component = NodePath("HealthComponent")
 sight_component = NodePath("SightComponent")
 nav_agent = NodePath("Navigation")
 state_machine = NodePath("StateMachine")
-movable = NodePath("Movable")
+movable = NodePath("")
 metadata/_edit_group_ = true
 
 [node name="HealthComponent" type="Node2D" parent="."]
@@ -73,16 +73,14 @@ engaging_target_state = NodePath("../EngagingTarget")
 script = ExtResource("5_ycv6i")
 idle_state = NodePath("../Idle")
 
-[node name="EngagingTarget" type="Node" parent="StateMachine" node_paths=PackedStringArray("engaging_position_state", "attacking_state", "idle_state")]
+[node name="EngagingTarget" type="Node" parent="StateMachine" node_paths=PackedStringArray("attacking_state", "idle_state")]
 script = ExtResource("6_pjjxt")
-engaging_position_state = NodePath("../EngagingPosition")
 attacking_state = NodePath("../Attacking")
 idle_state = NodePath("../Idle")
 
-[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "engaging_position_state")]
+[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("7_7pfmu")
 idle_state = NodePath("../Idle")
-engaging_position_state = NodePath("../EngagingPosition")
 
 [node name="SelectedShadow" type="Sprite2D" parent="."]
 unique_name_in_owner = true

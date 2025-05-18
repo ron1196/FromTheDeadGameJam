@@ -1,9 +1,12 @@
-extends Zombie
+extends Control
+
+@onready var center: CenterContainer = $Center
+@onready var node: Zombie = $ZombiePreview
 
 
 func _ready() -> void:
-	pass
+	node.make_statute()
 
 
-func enter_preview():
-	pass
+func _on_resized() -> void:
+	node.position = center.position

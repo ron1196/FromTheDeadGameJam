@@ -1,28 +1,24 @@
 [gd_scene load_steps=9 format=3 uid="uid://2ykqijxq7pup"]
 
 [ext_resource type="Script" uid="uid://bn3vgmritde17" path="res://scripts/components/sight_component.gd" id="1_7p1mj"]
-[ext_resource type="Script" uid="uid://c541x316jnhtp" path="res://scripts/units/enemy.gd" id="1_c4w8v"]
+[ext_resource type="Script" uid="uid://c541x316jnhtp" path="res://scripts/enemy.gd" id="1_c4w8v"]
 [ext_resource type="Texture2D" uid="uid://b28p1mpj61n1p" path="res://assets/panda.png" id="1_md0e3"]
 [ext_resource type="Script" uid="uid://bty6wyn6n62kv" path="res://scripts/components/health_component.gd" id="3_4ra3w"]
-[ext_resource type="PackedScene" uid="uid://dmxdvu6tfxlge" path="res://scenes/floating_damage_indicator.tscn" id="3_xwavj"]
 [ext_resource type="Script" uid="uid://b3fq4wf352f8o" path="res://scripts/components/hurtbox_component.gd" id="4_5uy6h"]
+[ext_resource type="Material" uid="uid://2p83dek5bvn0" path="res://shaders/flash.tres" id="5_xwavj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
 size = Vector2(35, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 
-[node name="Enemy" type="Node2D" node_paths=PackedStringArray("health_component", "sight_component", "nav_agent")]
+[node name="Enemy" type="Node2D"]
 z_index = -10
 script = ExtResource("1_c4w8v")
-floating_damage_indicator_scene = ExtResource("3_xwavj")
-health_component = NodePath("HealthComponent")
-sight_component = NodePath("SightComponent")
-nav_agent = NodePath("Navigation")
 
-[node name="HealthComponent" type="Node2D" parent="."]
+[node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_4ra3w")
-max_health = 50
+metadata/_custom_type_script = "uid://bty6wyn6n62kv"
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 visible = false
@@ -46,17 +42,10 @@ script = ExtResource("1_7p1mj")
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_md0e3")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-unique_name_in_owner = true
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("5_xwavj")
 texture = ExtResource("1_md0e3")
 
-[node name="Navigation" type="NavigationAgent2D" parent="."]
-unique_name_in_owner = true
-avoidance_enabled = true
-time_horizon_agents = 0.1
-debug_enabled = true
-
 [connection signal="died" from="HealthComponent" to="." method="_on_died"]
-[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_changed"]
 [connection signal="area_entered" from="SightComponent" to="SightComponent" method="_on_sight_entered"]
 [connection signal="area_exited" from="SightComponent" to="SightComponent" method="_on_sight_exited"]

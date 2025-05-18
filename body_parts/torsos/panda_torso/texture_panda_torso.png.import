@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl7uixp8m1mys"
-path="res://.godot/imported/texture.png-70a74ddafd978deb64d9c0834a341ede.ctex"
+uid="uid://bve4l4j825xra"
+path="res://.godot/imported/texture_panda_torso.png-408baab62af1efd63573a29e3ba81187.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://body_parts/torsos/green_torso/texture.png"
-dest_files=["res://.godot/imported/texture.png-70a74ddafd978deb64d9c0834a341ede.ctex"]
+source_file="res://body_parts/torsos/panda_torso/texture_panda_torso.png"
+dest_files=["res://.godot/imported/texture_panda_torso.png-408baab62af1efd63573a29e3ba81187.ctex"]
 
 [params]
 

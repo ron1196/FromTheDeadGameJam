@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://chvfvtcch85ar"]
+
+[ext_resource type="Script" uid="uid://c2wvvbphqg43w" path="res://scripts/zombie.gd" id="1_1vlb3"]
+[ext_resource type="Texture2D" uid="uid://cp3b8ndbbs5as" path="res://assets/selected.png" id="2_httt1"]
+[ext_resource type="Script" uid="uid://cxu570an015xh" path="res://scripts/state_machine/state_machine.gd" id="3_xepks"]
+[ext_resource type="Script" uid="uid://cn75cdxjfr23k" path="res://scripts/state_machine/idle_state.gd" id="4_4gx57"]
+[ext_resource type="Script" uid="uid://clmr43kvgax76" path="res://scripts/state_machine/moving_state.gd" id="5_ycv6i"]
+[ext_resource type="Script" uid="uid://cx03y42e27l40" path="res://scripts/state_machine/engaging_state.gd" id="6_pjjxt"]
+[ext_resource type="Script" uid="uid://bkg0uwo8txvr" path="res://scripts/state_machine/attacking_state.gd" id="7_7pfmu"]
+[ext_resource type="Script" uid="uid://bn3vgmritde17" path="res://scripts/components/sight_component.gd" id="8_3fthk"]
+[ext_resource type="Script" uid="uid://bty6wyn6n62kv" path="res://scripts/components/health_component.gd" id="9_aetfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aetfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fthk"]
+
+[node name="Zombie" type="Area2D"]
+z_index = -10
+scale = Vector2(5, 5)
+collision_mask = 0
+script = ExtResource("1_1vlb3")
+metadata/_edit_group_ = true
+
+[node name="HealthComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_aetfh")
+metadata/_custom_type_script = "uid://bty6wyn6n62kv"
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("default_state", "zombie")]
+unique_name_in_owner = true
+script = ExtResource("3_xepks")
+debug = true
+default_state = NodePath("Idle")
+zombie = NodePath("..")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("moving_state", "engaging_state")]
+script = ExtResource("4_4gx57")
+moving_state = NodePath("../Moving")
+engaging_state = NodePath("../Engaging")
+
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("5_ycv6i")
+idle_state = NodePath("../Idle")
+
+[node name="Engaging" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "moving_state", "attacking_state")]
+script = ExtResource("6_pjjxt")
+desired_distance = null
+idle_state = NodePath("../Idle")
+moving_state = NodePath("../Moving")
+attacking_state = NodePath("../Attacking")
+
+[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "moving_state")]
+script = ExtResource("7_7pfmu")
+idle_state = NodePath("../Idle")
+moving_state = NodePath("../Moving")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+visibility_layer = 3
+shape = SubResource("RectangleShape2D_aetfh")
+
+[node name="SelectedShadow" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.784314)
+z_index = -1
+position = Vector2(0, 7)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_httt1")
+
+[node name="Navigation" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+target_desired_distance = 20.0
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="SightComponent" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("8_3fthk")
+
+[node name="Collision" type="CollisionShape2D" parent="SightComponent"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_3fthk")
+
+[connection signal="area_entered" from="SightComponent" to="SightComponent" method="_on_sight_entered"]
+[connection signal="area_exited" from="SightComponent" to="SightComponent" method="_on_sight_exited"]

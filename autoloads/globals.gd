@@ -1,6 +1,6 @@
 extends Node
 
-const DEBUG: bool = false
+const DEBUG: bool = true
 
 const UNIT_GROUP: String = "unit"
 

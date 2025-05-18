@@ -1,7 +1,11 @@
 extends Node
 class_name State
 
-var zombie: Zombie
+var zombie: Unit
+
+
+func change_state(new_state: State) -> void:
+	zombie.state_machine.current_state = new_state
 
 
 func init(_zombie: Zombie):
@@ -18,9 +22,6 @@ func exit() -> void:
 
 func handle_input(_event: InputEvent) -> void:
 	if not InputManager.is_game_input_allowed():
-		return
-
-	if zombie.is_static:
 		return
 
 

@@ -200,14 +200,14 @@ text = "Speed: "
 layout_mode = 2
 text = "0"
 
-[node name="Endurance" type="HBoxContainer" parent="UI/ZombieBuilderPanel/ZombieBuilder/HeaderPanel/AttributesUIMargin/AttributesUI"]
+[node name="Health" type="HBoxContainer" parent="UI/ZombieBuilderPanel/ZombieBuilder/HeaderPanel/AttributesUIMargin/AttributesUI"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/ZombieBuilderPanel/ZombieBuilder/HeaderPanel/AttributesUIMargin/AttributesUI/Endurance"]
+[node name="Label" type="Label" parent="UI/ZombieBuilderPanel/ZombieBuilder/HeaderPanel/AttributesUIMargin/AttributesUI/Health"]
 layout_mode = 2
-text = "Endurance: "
+text = "Health: "
 
-[node name="Value" type="Label" parent="UI/ZombieBuilderPanel/ZombieBuilder/HeaderPanel/AttributesUIMargin/AttributesUI/Endurance"]
+[node name="Value" type="Label" parent="UI/ZombieBuilderPanel/ZombieBuilder/HeaderPanel/AttributesUIMargin/AttributesUI/Health"]
 layout_mode = 2
 text = "0"
 

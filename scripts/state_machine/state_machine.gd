@@ -6,27 +6,23 @@ class_name StateMachine
 @export var default_state: State
 var current_state: State:
 	set(new_state):
-		if new_state == null:
-			push_warning("Trying to set null state for " + name)
-			return
-
 		if current_state == new_state:
 			return
 
 		if current_state != null:
-			if debug:
-				print(zombie.name + " exit state " + current_state.name)
-
+			if debug: print(zombie.name + " exit state " + current_state.name)
 			current_state.exit()
 
 		current_state = new_state
 
-		if debug:
-			print(zombie.name + " enter state " + current_state.name)
+		if current_state == null:
+			if debug: print(zombie.name + " enter state null")
+			return
 
+		if debug: print(zombie.name + " enter state " + current_state.name)
 		current_state.enter()
 
-@export var zombie: Zombie
+@export var zombie: Unit
 
 
 func _ready() -> void:
@@ -34,10 +30,15 @@ func _ready() -> void:
 		if state as State:
 			state.init(zombie)
 
-	if zombie.is_static:
-		return
-
 	current_state = default_state
+
+
+func enable() -> void:
+	current_state = default_state
+
+
+func disable() -> void:
+	current_state = null
 
 
 func _unhandled_input(event: InputEvent) -> void:
