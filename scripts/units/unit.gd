@@ -3,6 +3,8 @@ class_name Unit
 
 signal attributes_changed(attributes: BodyPartAttributes)
 
+const WHITE_FLASH := "res://shaders/flash.tres"
+
 @export var health_component: HealthComponent
 @export var sight_component: SightComponent
 @export var nav_agent: NavigationAgent2D
@@ -34,25 +36,32 @@ func get_nodes_to_change_material() -> Array[Node2D]:
 	return []
 
 
-## Flash white briefly
-func _play_damage_feedback() -> void:
+func put_shader(shader: ShaderMaterial) -> Array[Node2D]:
 	var sprites: Array[Node2D] = get_nodes_to_change_material()
 	var changed: Array[Node2D] = []
-	var flash = preload("res://shaders/flash.tres")
 
 	for node in sprites:
 		if node.material == null:
-			node.material = flash
+			node.material = shader
 			changed.append(node)
 
-	await get_tree().create_timer(0.1).timeout
+	return changed
 
-	for node in changed:
+
+func remove_shader(arr: Array[Node2D]):
+	for node in arr:
 		node.material = null
 
 
+## Flash white briefly
+func _play_damage_feedback(shader: ShaderMaterial) -> void:
+	var changed: Array[Node2D] = put_shader(shader)
+	await get_tree().create_timer(0.1).timeout
+	remove_shader(changed)
+
+
 func _on_health_changed(amount: int, type: HealthComponent.Types) -> void:
-	_play_damage_feedback()
+	_play_damage_feedback(preload(WHITE_FLASH))
 	if floating_damage_indicator_scene != null:
 		var scene: FloatingDamageIndicator = floating_damage_indicator_scene.instantiate()
 		add_child(scene)

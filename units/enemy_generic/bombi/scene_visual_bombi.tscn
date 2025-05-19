@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://55jo6xkc7eq"]
+
+[ext_resource type="Texture2D" uid="uid://6f7i5a2c5hh6" path="res://units/enemy_generic/bombi/bomb_character_o_explode.png" id="1_tibu6"]
+[ext_resource type="Texture2D" uid="uid://0vlet4agq54w" path="res://units/enemy_generic/bombi/bomb_character_o_idle.png" id="2_iowo8"]
+[ext_resource type="Texture2D" uid="uid://bei226b1ljq6u" path="res://units/enemy_generic/bombi/bomb_character_o_walk.png" id="3_w3jft"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcpmn"]
+atlas = ExtResource("1_tibu6")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hj56"]
+atlas = ExtResource("1_tibu6")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6eb7"]
+atlas = ExtResource("1_tibu6")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u82qc"]
+atlas = ExtResource("1_tibu6")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by4nl"]
+atlas = ExtResource("2_iowo8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5icm"]
+atlas = ExtResource("2_iowo8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow0fb"]
+atlas = ExtResource("3_w3jft")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7werf"]
+atlas = ExtResource("3_w3jft")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoyca"]
+atlas = ExtResource("3_w3jft")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svuxw"]
+atlas = ExtResource("3_w3jft")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ii6q"]
+atlas = ExtResource("3_w3jft")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es87x"]
+atlas = ExtResource("3_w3jft")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6x3oi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcpmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hj56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6eb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u82qc")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by4nl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5icm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow0fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7werf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoyca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svuxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ii6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es87x")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Bombi" type="AnimatedSprite2D"]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_6x3oi")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.539689

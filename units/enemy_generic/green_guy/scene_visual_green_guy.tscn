@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bda6m7jevx0x1"]
+
+[ext_resource type="Texture2D" uid="uid://vidjv3ya431a" path="res://units/enemy_generic/green_guy/green_guy.png" id="1_i0ua0"]
+
+[node name="GreenGuy" type="Sprite2D"]
+position = Vector2(0.5, 0)
+texture = ExtResource("1_i0ua0")

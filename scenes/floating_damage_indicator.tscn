@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmxdvu6tfxlge"]
 
-[ext_resource type="Script" uid="uid://hmpsbduu7pfm" path="res://scripts/floating_damage_indicator.gd" id="1_2arxe"]
+[ext_resource type="Script" uid="uid://hmpsbduu7pfm" path="res://scripts/units/floating_damage_indicator.gd" id="1_2arxe"]
 
 [sub_resource type="Animation" id="Animation_2arxe"]
 length = 0.001

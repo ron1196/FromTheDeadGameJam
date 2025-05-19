@@ -93,9 +93,10 @@ time_horizon_agents = 0.1
 avoidance_priority = 0.3
 debug_enabled = true
 
-[node name="Movable" type="Node2D" parent="."]
+[node name="Movable" type="Node2D" parent="." node_paths=PackedStringArray("unit")]
 unique_name_in_owner = true
 script = ExtResource("11_iblsu")
+unit = NodePath("..")
 
 [connection signal="area_entered" from="SightComponent" to="SightComponent" method="_on_sight_entered"]
 [connection signal="area_exited" from="SightComponent" to="SightComponent" method="_on_sight_exited"]

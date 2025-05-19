@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ihfnh7x6rxo7"]
+
+[ext_resource type="Script" uid="uid://ctdrpjgqt2dgu" path="res://units/body_part.gd" id="1_a36tk"]
+[ext_resource type="Texture2D" uid="uid://ba4uga2f6vby4" path="res://units/enemy_generic/green_guy/green_leg/texture.png" id="1_xwstp"]
+[ext_resource type="Resource" uid="uid://dlj2ju4nelx2x" path="res://units/basic_leg.tres" id="2_1r4e3"]
+[ext_resource type="Script" uid="uid://bn2lm2uhijfs3" path="res://units/body_anchor.gd" id="3_1r4e3"]
+
+[node name="GreenLeg" type="Node2D"]
+script = ExtResource("1_a36tk")
+body_type = 1
+attributes = ExtResource("2_1r4e3")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_xwstp")
+
+[node name="Torso" type="Marker2D" parent="."]
+position = Vector2(0, -1.5)
+rotation = -1.5708
+gizmo_extents = 5.0
+script = ExtResource("3_1r4e3")
+connected_to_type = 2

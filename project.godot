@@ -17,10 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Enums="*res://autoloads/enums.gd"
-Logger="*res://autoloads/logger.gd"
-Globals="*res://autoloads/globals.gd"
-InputManager="*res://autoloads/input_manager.gd"
+Enums="*res://scripts/autoloads/enums.gd"
+Globals="*res://scripts/autoloads/globals.gd"
+InputManager="*res://scripts/autoloads/input_manager.gd"
 
 [editor_plugins]
 

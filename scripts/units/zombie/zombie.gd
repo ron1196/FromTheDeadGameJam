@@ -1,10 +1,13 @@
 extends Unit
 class_name Zombie
 
+const YELLOW_FLASH := "res://shaders/flash_yellow.tres"
+
 @onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 
 @export var speed: float = 700
 
+var is_selected: bool = false
 var body_parts: Array[BodyPart]
 
 
@@ -45,13 +48,17 @@ func disable_statute():
 	hurtbox_component.enable()
 	sight_component.enable()
 
+var changed: Array[Node2D]
+
 
 func select() -> void:
-	(movable as ZombieMovable).select()
+	changed = put_shader(preload(YELLOW_FLASH))
+	is_selected = true
 
 
 func deselect() -> void:
-	(movable as ZombieMovable).deselect()
+	remove_shader(changed)
+	is_selected = false
 
 
 func _calculate_attributes() -> void:
@@ -119,11 +126,15 @@ func _connect_to_body_part(part: BodyPart, connect_to: BodyPart) -> void:
 	part_anchor.is_used = true
 	other_part_anchor.is_used = true
 
-	var rotation_offset = PI + part_anchor.global_rotation - other_part_anchor.global_rotation
+	var rotation_offset = PI + (other_part_anchor.global_rotation - part_anchor.global_rotation)
 	part.rotation = rotation_offset
 
 	var part_anchor_postion = other_part_anchor.global_position / scale
 	var other_part_anchor_postion = part_anchor.global_position / scale
+
+	#if other_part_anchor.properties.get(Globals.PROPERTY_DIRECTION) == "left":
+		#part.flip_h()
+
 	part.position = part_anchor_postion - other_part_anchor_postion
 
 

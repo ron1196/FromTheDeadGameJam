@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://di3w84pn0rb87"]
+
+[ext_resource type="Script" uid="uid://ctdrpjgqt2dgu" path="res://units/body_part.gd" id="1_642sm"]
+[ext_resource type="Resource" uid="uid://dlj2ju4nelx2x" path="res://units/basic_leg.tres" id="2_2pudf"]
+[ext_resource type="SpriteFrames" uid="uid://b8cr1yarn603f" path="res://units/enemy_generic/cat/sprite_frames_cat.tres" id="3_f22yb"]
+[ext_resource type="Script" uid="uid://bn2lm2uhijfs3" path="res://units/body_anchor.gd" id="4_2v0rh"]
+
+[node name="CatLeg" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_642sm")
+body_type = 1
+attributes = ExtResource("2_2pudf")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_f22yb")
+animation = &"leg"
+autoplay = "leg"
+metadata/_edit_lock_ = true
+
+[node name="Torso" type="Marker2D" parent="."]
+position = Vector2(-7, 3.5)
+rotation = 3.14159
+gizmo_extents = 5.0
+script = ExtResource("4_2v0rh")
+connected_to_type = 2

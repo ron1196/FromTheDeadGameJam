@@ -24,6 +24,7 @@ func on_navigation_finished() -> State:
 
 func enter() -> void:
 	super()
+
 	var target: Vector2 = get_target_position()
 
 	if target == Vector2.INF:
@@ -45,7 +46,7 @@ func exit() -> void:
 
 func update(delta: float) -> void:
 	if unit.nav_agent.is_navigation_finished():
-		on_target_reached()
+		_on_target_reached()
 
 	# Check if stuck (no progress for 1 second)
 	var distance_to_target: float = unit.nav_agent.distance_to_target()
@@ -75,7 +76,7 @@ func physics_update(_delta: float) -> void:
 	unit.nav_agent.set_velocity(direction * unit.get_speed())
 
 
-func on_target_reached() -> void:
+func _on_target_reached() -> void:
 	var new_state: State = on_navigation_finished()
 
 	if new_state != null:
@@ -83,7 +84,7 @@ func on_target_reached() -> void:
 
 
 func _handle_stuck_situation() -> void:
-	on_target_reached()
+	_on_target_reached()
 
 
 ## Reset timer whenever path updates

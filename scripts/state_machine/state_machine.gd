@@ -33,6 +33,10 @@ func _ready() -> void:
 	current_state = default_state
 
 
+func is_idle() -> bool:
+	return current_state == default_state
+
+
 func enable() -> void:
 	current_state = default_state
 

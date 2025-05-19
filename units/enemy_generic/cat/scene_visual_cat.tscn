@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj58pwx0mmtnr"]
+
+[ext_resource type="SpriteFrames" uid="uid://b8cr1yarn603f" path="res://units/enemy_generic/cat/sprite_frames_cat.tres" id="1_a4rgu"]
+
+[node name="Cat" type="AnimatedSprite2D"]
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("1_a4rgu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.1752

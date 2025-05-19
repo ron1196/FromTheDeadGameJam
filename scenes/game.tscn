@@ -1,20 +1,24 @@
-[gd_scene load_steps=18 format=4 uid="uid://dbmg4vtskbydd"]
+[gd_scene load_steps=22 format=4 uid="uid://dbmg4vtskbydd"]
 
 [ext_resource type="TileSet" uid="uid://bcuojgghnid48" path="res://tilesets/floor_tileset.tres" id="1_0tnpc"]
-[ext_resource type="Script" uid="uid://p5n4qnpctfi3" path="res://scripts/zombie_builder.gd" id="1_gee14"]
-[ext_resource type="InventoryDatabase" uid="uid://cu2gatoa2l5pi" path="res://inventory/database.tres" id="1_yqjtg"]
-[ext_resource type="Script" uid="uid://doe5ge3hl621u" path="res://scripts/zombie_preview.gd" id="2_0tnpc"]
-[ext_resource type="Script" uid="uid://b004ixhson8lx" path="res://scripts/units.gd" id="2_dinhu"]
-[ext_resource type="Script" uid="uid://cph25o6rhq5ee" path="res://inventory/player_inventory.gd" id="2_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://2ykqijxq7pup" path="res://scenes/enemy.tscn" id="3_ir15t"]
-[ext_resource type="Script" uid="uid://f25afx7wjhbi" path="res://scripts/ui.gd" id="3_trtic"]
+[ext_resource type="Script" uid="uid://p5n4qnpctfi3" path="res://scripts/ui/zombie_builder/zombie_builder.gd" id="1_gee14"]
+[ext_resource type="InventoryDatabase" uid="uid://cu2gatoa2l5pi" path="res://scripts/inventory/database.tres" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://doe5ge3hl621u" path="res://scripts/ui/zombie_builder/zombie_preview.gd" id="2_0tnpc"]
+[ext_resource type="Script" uid="uid://b004ixhson8lx" path="res://scripts/units/units.gd" id="2_dinhu"]
+[ext_resource type="Script" uid="uid://cph25o6rhq5ee" path="res://scripts/inventory/player_inventory.gd" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://2ykqijxq7pup" path="res://units/enemy_generic/scene_enemy_generic.tscn" id="3_ir15t"]
+[ext_resource type="Script" uid="uid://f25afx7wjhbi" path="res://scripts/ui/enter_game_ui.gd" id="3_trtic"]
+[ext_resource type="PackedScene" uid="uid://cnxh38syyb5kg" path="res://units/enemy_generic/panda/scene_visual_panda.tscn" id="4_ca42v"]
 [ext_resource type="Script" uid="uid://ctu3vfl53whl3" path="res://addons/inventory-system-demos/ui/grid/grid_inventory_ui.gd" id="4_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cxevor61mdhtc" path="res://addons/inventory-system-demos/ui/grid/grid_slot_ui.tscn" id="5_dinhu"]
 [ext_resource type="PackedScene" uid="uid://chvfvtcch85ar" path="res://scenes/zombie.tscn" id="5_kvuet"]
+[ext_resource type="PackedScene" uid="uid://dj58pwx0mmtnr" path="res://units/enemy_generic/cat/scene_visual_cat.tscn" id="5_rysoc"]
+[ext_resource type="PackedScene" uid="uid://bda6m7jevx0x1" path="res://units/enemy_generic/green_guy/scene_visual_green_guy.tscn" id="5_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://ch1ixmsfcaf5c" path="res://addons/inventory-system-demos/ui/grid/grid_item_stack_ui.tscn" id="6_kvuet"]
-[ext_resource type="Script" uid="uid://c4iot7uiy7vdh" path="res://scripts/attributes_ui.gd" id="6_trtic"]
+[ext_resource type="Script" uid="uid://c4iot7uiy7vdh" path="res://scripts/ui/zombie_builder/attributes_ui.gd" id="6_trtic"]
+[ext_resource type="PackedScene" uid="uid://55jo6xkc7eq" path="res://units/enemy_generic/bombi/scene_visual_bombi.tscn" id="7_264po"]
 [ext_resource type="Script" uid="uid://cnt70p58magmi" path="res://scripts/camera_movement.gd" id="10_vtaks"]
-[ext_resource type="Script" uid="uid://cuo6g6mxlhbau" path="res://scripts/selection_box.gd" id="11_kvpfn"]
+[ext_resource type="Script" uid="uid://cuo6g6mxlhbau" path="res://scripts/ui/selection_box.gd" id="11_kvpfn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ir15t"]
 vertices = PackedVector2Array(485.531, 472.813, 793.469, 471.977, 803.797, 472.906, 484.75, 496, 972, 48.9766, 972, 528.992, 742.156, 352, 740.563, 333.758, 773.531, 184.813, 772.563, 173.758, 820.75, 464, 821.531, 440.813, 789.469, 464, 787.117, 464, 733.523, 326.391, 582.156, 128, 580.563, 109.758, 765.523, 166.391, 756, 165.273, 421.758, 322, 421.219, 322, 421.531, 312.813, 579.078, 129.07, 579.047, 128, 771.078, 209.07, 771.047, 208, 772.75, 208, 419.078, 353.07, 419.047, 352, 420.75, 352, 681.469, 359.977, 739.078, 353.07, 739.047, 352, 483.078, 497.07, 483.047, 496, 819.078, 465.07, 819.047, 464, 379, 363.039, 379, 362.68, 395, 363.039, 395, 362.68, 411, 363.039, 794.477, 422.391, 715, 363.039, 715, 362.68, 731, 363.039, 804, 421.273, 459, 507.039, 459, 506.68, 475, 507.039, 381, 292.828, 381, 293.117, 365, 292.828, 190.953, 47.0078, 365, 293.117, 349, 292.828, 701, 324.828, 701, 325.117, 685, 324.828, 445, 452.828, 445, 453.117, 429, 452.828, 339.117, 336, 339.297, 336, 339.117, 352, 188.039, 528, 685, 326.094, 682.477, 326.391, 675.078, 334.148, 675.859, 352, 685, 362.359, 411, 360.672, 412.867, 360.609, 685, 360.289, 731, 360.672, 732.867, 360.609, 813.523, 422.391, 475, 504.672, 476.867, 504.609, 787.406, 437.813, 484.563, 461.758, 787.078, 430.148, 345.469, 359.977, 349, 360.289, 349, 362.359, 425.469, 503.977, 429, 504.289, 429, 506.359, 349, 294.094, 346.477, 294.391, 429, 454.094, 426.477, 454.391, 739.117, 208, 745.469, 215.977, 717.781, 325.141, 420.563, 301.758, 746.477, 166.391, 739.078, 174.148, 739.406, 181.813, 547.859, 128, 549.469, 128, 553.469, 135.977, 741.469, 208, 341.469, 352, 677.469, 352, 419.117, 496, 421.469, 496, 724.508, 325.328, 812.867, 472.609, 573.523, 102.391, 564, 101.273, 554.477, 102.391, 547.078, 110.148, 820.563, 429.758, 764.867, 216.609, 755.797, 216.906, 413.523, 294.391, 477.523, 454.391, 404.508, 293.328, 572.867, 136.609, 397.781, 293.141, 563.797, 136.906, 339.078, 302.148, 339.406, 309.813, 419.406, 469.813, 419.078, 462.148, 461.781, 453.141, 468.508, 453.328)
@@ -55,11 +59,25 @@ script = ExtResource("2_dinhu")
 
 [node name="Enemies" type="Node" parent="World"]
 
-[node name="Enemy" parent="World/Enemies" instance=ExtResource("3_ir15t")]
-position = Vector2(553, 294)
+[node name="Panda" parent="World/Enemies" instance=ExtResource("3_ir15t")]
+position = Vector2(542, 233)
+enemy_visual_scene = ExtResource("4_ca42v")
 
-[node name="Enemy2" parent="World/Enemies" instance=ExtResource("3_ir15t")]
-position = Vector2(528, 294)
+[node name="GreenGuy" parent="World/Enemies" instance=ExtResource("3_ir15t")]
+position = Vector2(611, 294)
+enemy_visual_scene = ExtResource("5_ssvqc")
+
+[node name="Cat" parent="World/Enemies" instance=ExtResource("3_ir15t")]
+position = Vector2(484, 317)
+enemy_visual_scene = ExtResource("5_rysoc")
+
+[node name="Bombi" parent="World/Enemies" instance=ExtResource("3_ir15t")]
+position = Vector2(481, 379)
+enemy_visual_scene = ExtResource("7_264po")
+targets = Array[Vector2]([Vector2(400, 400), Vector2(600, 500), Vector2(200, 200)])
+
+[node name="StateMachine" parent="World/Enemies/Bombi" index="4"]
+debug = true
 
 [node name="BaseArea" type="VisibleOnScreenEnabler2D" parent="World"]
 position = Vector2(516, 414)
@@ -244,3 +262,5 @@ script = ExtResource("11_kvpfn")
 [connection signal="pressed" from="UI/ZombieBuilderPanel/ZombieBuilder/HeaderPanel/ButtonsMargin/Buttons/Reset" to="UI/ZombieBuilderPanel/ZombieBuilder" method="_on_reset_pressed"]
 [connection signal="resized" from="UI/ZombieBuilderPanel/ZombieBuilder/HeaderPanel/ZombiePreviewContainer" to="UI/ZombieBuilderPanel/ZombieBuilder/HeaderPanel/ZombiePreviewContainer" method="_on_resized"]
 [connection signal="selection_changed" from="UI/ZombieBuilderPanel/ZombieBuilder/InventoryPanel" to="UI/ZombieBuilderPanel/ZombieBuilder" method="_on_inventory_item_selected"]
+
+[editable path="World/Enemies/Bombi"]

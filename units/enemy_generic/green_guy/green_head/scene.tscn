@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://be3vf67lhwgjy"]
+
+[ext_resource type="Texture2D" uid="uid://c5ibe2fe4y8vw" path="res://units/enemy_generic/green_guy/green_head/texture.png" id="1_1pf3j"]
+[ext_resource type="Script" uid="uid://ctdrpjgqt2dgu" path="res://units/body_part.gd" id="1_gsn4s"]
+[ext_resource type="Resource" uid="uid://ci645dkx1jn71" path="res://units/basic_head.tres" id="2_pd4jj"]
+[ext_resource type="Script" uid="uid://bn2lm2uhijfs3" path="res://units/body_anchor.gd" id="3_nc77p"]
+
+[node name="GreenHead" type="Node2D"]
+script = ExtResource("1_gsn4s")
+body_type = 3
+attributes = ExtResource("2_pd4jj")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_1pf3j")
+
+[node name="Torso" type="Marker2D" parent="."]
+position = Vector2(0, 6)
+rotation = 1.5708
+gizmo_extents = 15.0
+script = ExtResource("3_nc77p")
+connected_to_type = 2

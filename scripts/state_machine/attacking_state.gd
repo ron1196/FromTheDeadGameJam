@@ -1,8 +1,8 @@
 extends State
 class_name AttackingState
 
-@export var attack_interval = 0.5
-@export var attack_damage_base = 5
+@export var attack_interval: float = 0.5
+@export var attack_damage_base: float = 5
 var attack_timer: Timer
 
 @export var idle_state: State
@@ -51,8 +51,8 @@ func exit() -> void:
 	target = null
 
 
-func handle_input(event: InputEvent) -> void:
-	super.handle_input(event)
+func update(delta: float) -> void:
+	super(delta)
 
 	var target_position: Vector2 = unit.movable.get_target_position()
 

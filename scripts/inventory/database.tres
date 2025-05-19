@@ -1,0 +1,115 @@
+[gd_resource type="InventoryDatabase" load_steps=31 format=3 uid="uid://cu2gatoa2l5pi"]
+
+[ext_resource type="Texture2D" uid="uid://c5ibe2fe4y8vw" path="res://units/enemy_generic/green_guy/green_head/texture.png" id="1_hoxnx"]
+[ext_resource type="PackedScene" uid="uid://be3vf67lhwgjy" path="res://units/enemy_generic/green_guy/green_head/scene.tscn" id="2_b3wql"]
+[ext_resource type="Texture2D" uid="uid://ba4uga2f6vby4" path="res://units/enemy_generic/green_guy/green_leg/texture.png" id="3_x5puh"]
+[ext_resource type="PackedScene" uid="uid://ihfnh7x6rxo7" path="res://units/enemy_generic/green_guy/green_leg/scene.tscn" id="4_h6bqh"]
+[ext_resource type="Texture2D" uid="uid://dl7uixp8m1mys" path="res://units/enemy_generic/green_guy/green_torso/green_torso.png" id="5_gpdw3"]
+[ext_resource type="PackedScene" uid="uid://dxbrlpf8oeijb" path="res://units/enemy_generic/green_guy/green_torso/green_torso.tscn" id="6_jsqou"]
+[ext_resource type="Texture2D" uid="uid://bve4l4j825xra" path="res://units/enemy_generic/panda/panda_torso/texture_panda_torso.png" id="7_xa0in"]
+[ext_resource type="PackedScene" uid="uid://dwnyjx0pcux7s" path="res://units/enemy_generic/panda/panda_torso/scene_panda_torso.tscn" id="8_hoxnx"]
+[ext_resource type="Texture2D" uid="uid://bmkgyhoaer4oe" path="res://units/enemy_generic/panda/panda_leg/panda_leg.png" id="9_b3wql"]
+[ext_resource type="PackedScene" uid="uid://dr5b4cdpdvedx" path="res://units/enemy_generic/panda/panda_leg/panda_leg.tscn" id="10_x5puh"]
+[ext_resource type="Texture2D" uid="uid://cjtd8g6dotypj" path="res://units/enemy_generic/panda/panda_head/panda_head.png" id="11_h6bqh"]
+[ext_resource type="PackedScene" uid="uid://ducpuxxiww13g" path="res://units/enemy_generic/panda/panda_head/scene_panda_head.tscn" id="12_8y7ib"]
+[ext_resource type="Texture2D" uid="uid://b4xvq6rtqgf46" path="res://units/enemy_generic/cat/cat_head/cat_head.png" id="13_jsqou"]
+[ext_resource type="PackedScene" uid="uid://dyf3cgwsf2t1i" path="res://units/enemy_generic/cat/cat_head/scene_cat_head.tscn" id="14_ngab1"]
+[ext_resource type="Texture2D" uid="uid://3apaxke4rdkn" path="res://units/enemy_generic/cat/cat_torso/cat_torso.png" id="15_ngab1"]
+[ext_resource type="PackedScene" uid="uid://bqhgrgsg3rng5" path="res://units/enemy_generic/cat/cat_torso/scene_cat_torso.tscn" id="16_g68cj"]
+[ext_resource type="Texture2D" uid="uid://cxmtwxkoakgo2" path="res://units/enemy_generic/cat/cat_leg/cat_leg.png" id="17_kp02n"]
+[ext_resource type="PackedScene" uid="uid://di3w84pn0rb87" path="res://units/enemy_generic/cat/cat_leg/scene_cat_leg.tscn" id="18_xa0in"]
+[ext_resource type="Texture2D" uid="uid://chr7sxf54qjm6" path="res://units/enemy_generic/bombi/head/bombi_head.png" id="19_581rq"]
+[ext_resource type="PackedScene" uid="uid://c3a0ti6bwdhbi" path="res://units/enemy_generic/bombi/head/scene_bombi_head.tscn" id="20_xb51d"]
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_kclfh"]
+id = "green_head"
+max_stack = 64
+name = "Green Head"
+icon = ExtResource("1_hoxnx")
+properties = {
+&"scene": ExtResource("2_b3wql")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_x7snd"]
+id = "green_leg"
+max_stack = 64
+name = "Green Leg"
+icon = ExtResource("3_x5puh")
+properties = {
+&"scene": ExtResource("4_h6bqh")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_ywykn"]
+id = "green_torso"
+max_stack = 64
+name = "Green Torso"
+icon = ExtResource("5_gpdw3")
+properties = {
+&"scene": ExtResource("6_jsqou")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_8gp4u"]
+id = "panda_torso"
+max_stack = 64
+name = "Panda Torso"
+icon = ExtResource("7_xa0in")
+properties = {
+&"scene": ExtResource("8_hoxnx")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_vryd6"]
+id = "panda_leg"
+max_stack = 64
+name = "Panda Leg"
+icon = ExtResource("9_b3wql")
+properties = {
+&"scene": ExtResource("10_x5puh")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_6kpvc"]
+id = "panda_head"
+max_stack = 64
+name = "Panda Head"
+icon = ExtResource("11_h6bqh")
+properties = {
+&"scene": ExtResource("12_8y7ib")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_8y7ib"]
+id = "cat_head"
+max_stack = 64
+name = "Cat Head"
+icon = ExtResource("13_jsqou")
+properties = {
+&"scene": ExtResource("14_ngab1")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_kp02n"]
+id = "cat_torso"
+max_stack = 64
+name = "Cat Torso"
+icon = ExtResource("15_ngab1")
+properties = {
+&"scene": ExtResource("16_g68cj")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_g68cj"]
+id = "cat_leg"
+max_stack = 64
+name = "Cat Leg"
+icon = ExtResource("17_kp02n")
+properties = {
+&"scene": ExtResource("18_xa0in")
+}
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_kyhlq"]
+id = "bombi_head"
+max_stack = 64
+name = "Bombi Head"
+icon = ExtResource("19_581rq")
+properties = {
+&"scene": ExtResource("20_xb51d")
+}
+
+[resource]
+items = Array[ItemDefinition]([SubResource("ItemDefinition_kclfh"), SubResource("ItemDefinition_x7snd"), SubResource("ItemDefinition_ywykn"), SubResource("ItemDefinition_8gp4u"), SubResource("ItemDefinition_vryd6"), SubResource("ItemDefinition_6kpvc"), SubResource("ItemDefinition_8y7ib"), SubResource("ItemDefinition_kp02n"), SubResource("ItemDefinition_g68cj"), SubResource("ItemDefinition_kyhlq")])
