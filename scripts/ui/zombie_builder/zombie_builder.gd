@@ -4,7 +4,7 @@ extends VBoxContainer
 @export var base_area: Node2D
 
 @onready var inventory: GridInventory
-@onready var inventory_panel: GridInventoryUI = $InventoryPanel
+@onready var inventory_panel: GridInventoryUI = $InventoryControl
 @onready var zombie_preview: Zombie = %ZombiePreview
 @onready var attributes_ui: AttributesUI = %AttributesUI
 
