@@ -4,4 +4,4 @@ enum InputMapOptions {INPUT_OPEN_BUILDER}
 
 enum BodyType {UNDEFINED, LEG, TORSO, HEAD}
 
-enum TraitType {ATTACK}
+enum GTraitType {UNDEFINED, ATTACK}

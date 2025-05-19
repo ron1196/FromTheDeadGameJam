@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://bo10mh67mgqy4"]
+
+[ext_resource type="Texture2D" uid="uid://cwgmnqyqqshd6" path="res://assets/explosion/Explosion_1.png" id="1_v8gpv"]
+[ext_resource type="Script" uid="uid://dp11nvlklmf6y" path="res://scripts/explosion.gd" id="1_vk406"]
+[ext_resource type="Texture2D" uid="uid://dwk4bpnn4j8rb" path="res://assets/explosion/Explosion_2.png" id="2_cun36"]
+[ext_resource type="Texture2D" uid="uid://bpggxnpgvbjrs" path="res://assets/explosion/Explosion_3.png" id="3_vk406"]
+[ext_resource type="Texture2D" uid="uid://caa2vvgai46s2" path="res://assets/explosion/Explosion_4.png" id="4_4jttm"]
+[ext_resource type="Texture2D" uid="uid://bojvxbd2yomsx" path="res://assets/explosion/Explosion_5.png" id="5_6smmu"]
+[ext_resource type="Texture2D" uid="uid://pej2j4eirmmc" path="res://assets/explosion/Explosion_6.png" id="6_l208b"]
+[ext_resource type="Texture2D" uid="uid://tfyoel1kbhxs" path="res://assets/explosion/Explosion_7.png" id="7_dvsvq"]
+[ext_resource type="Script" uid="uid://bfjt5jv3ojvwn" path="res://scripts/components/hitbox_component.gd" id="8_cun36"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cun36"]
+radius = 180.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cun36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_v8gpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cun36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vk406")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4jttm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6smmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l208b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dvsvq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Explosion" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_vk406")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 5
+monitoring = false
+script = ExtResource("8_cun36")
+metadata/_custom_type_script = "uid://bfjt5jv3ojvwn"
+
+[node name="Collision" type="CollisionShape2D" parent="HitboxComponent"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_cun36")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_cun36")
+autoplay = "default"
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="destory_node"]
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_frame_changed"]

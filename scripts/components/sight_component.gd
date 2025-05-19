@@ -23,6 +23,10 @@ func _on_sight_entered(unit: Area2D) -> void:
 	units.append(unit)
 
 
+func unit_in_sight(unit: Unit) -> bool:
+	return units.find(unit) != -1
+
+
 func has_unit_in_sight() -> bool:
 	return !units.is_empty()
 

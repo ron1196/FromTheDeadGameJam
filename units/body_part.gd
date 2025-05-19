@@ -4,7 +4,7 @@ extends Node2D
 
 @export var body_type: Enums.BodyType
 @export var attributes: BodyPartAttributes
-@export var traits: Array[Trait]
+@export var traits: Array[GTrait]
 
 var anchors: Array[BodyAnchor]:
 	get:
@@ -22,12 +22,15 @@ func _ready() -> void:
 		push_error("Undefined attributes for node: " + str(name))
 
 
-func get_traits():
-	pass
+func get_traits() -> Array[int]:
+	var idxs: Array[int] = []
+	idxs.assign(range(traits.size()))
+	return idxs
+	#return traits.map(func(t: GTrait): return traits.find(t))
 
 
-func activate_trait():
-	pass
+func activate_trait(_unit: Unit, _gtrait_idx: int) -> bool:
+	return false
 
 
 func flip_h() -> void:

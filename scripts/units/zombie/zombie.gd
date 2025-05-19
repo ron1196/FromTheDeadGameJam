@@ -29,7 +29,7 @@ func _ready():
 		if child as BodyPart:
 			body_parts.append(child)
 
-	_calculate_attributes()
+	_calculate_on_new_parts()
 
 
 func get_speed() -> float:
@@ -61,6 +61,20 @@ func deselect() -> void:
 	is_selected = false
 
 
+func _calculate_gtraits_attack() -> void:
+	var tmp: Array[Callable] = []
+
+	for part in body_parts:
+		var traits_idx: Array[int] = part.get_traits()
+		var callables: Array[Callable]
+		for trait_idx in traits_idx:
+			callables.append(part.activate_trait.bind(trait_idx))
+
+		tmp.append_array(callables)
+
+	gtraits_attack = tmp
+
+
 func _calculate_attributes() -> void:
 	var tmp: BodyPartAttributes = BodyPartAttributes.new()
 
@@ -87,7 +101,7 @@ func add_body_part(scene: PackedScene) -> bool:
 	part.visible = true
 	body_parts.append(part)
 
-	_calculate_attributes()
+	_calculate_on_new_parts()
 
 	return true
 

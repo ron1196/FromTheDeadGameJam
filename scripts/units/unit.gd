@@ -2,6 +2,7 @@ extends Node2D
 class_name Unit
 
 signal attributes_changed(attributes: BodyPartAttributes)
+signal gtraits_attack_changed(gtraits: Array[GTrait])
 
 const WHITE_FLASH := "res://shaders/flash.tres"
 
@@ -14,6 +15,9 @@ const WHITE_FLASH := "res://shaders/flash.tres"
 @export var floating_damage_indicator_scene: PackedScene
 @export var is_static: bool = false
 
+@export var max_distance_from_start: float = INF
+var start_position: Vector2
+
 var attributes: BodyPartAttributes:
 	set(value):
 		if attributes != null && attributes.equals(value):
@@ -22,14 +26,29 @@ var attributes: BodyPartAttributes:
 		attributes = value
 		attributes_changed.emit(attributes)
 
+var gtraits_attack: Array[Callable]:
+	set(value):
+		if gtraits_attack != null && gtraits_attack.hash() == value.hash():
+			return
+
+		gtraits_attack = value
+		gtraits_attack_changed.emit(attributes)
+
 
 func _ready() -> void:
-	_calculate_attributes()
+	start_position = global_position
+
+	_calculate_on_new_parts()
 
 	health_component.max_health += attributes.endurance * 10
 
 	health_component.died.connect(_on_died)
 	health_component.health_changed.connect(_on_health_changed)
+
+
+func _calculate_on_new_parts():
+	_calculate_attributes()
+	_calculate_gtraits_attack()
 
 
 func get_nodes_to_change_material() -> Array[Node2D]:
@@ -64,9 +83,10 @@ func _on_health_changed(amount: int, type: HealthComponent.Types) -> void:
 	_play_damage_feedback(preload(WHITE_FLASH))
 	if floating_damage_indicator_scene != null:
 		var scene: FloatingDamageIndicator = floating_damage_indicator_scene.instantiate()
-		add_child(scene)
 		scene.set_random_position_x(-12, 12)
 		scene.set_random_position_y(-10, -20)
+		scene.global_position += global_position
+		GameManager.miscellaneous.add_child(scene)
 		scene.set_damage(amount, type)
 
 
@@ -79,4 +99,8 @@ func get_speed() -> float:
 
 
 func _calculate_attributes() -> void:
+	pass
+
+
+func _calculate_gtraits_attack() -> void:
 	pass

@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Enums="*res://scripts/autoloads/enums.gd"
 Globals="*res://scripts/autoloads/globals.gd"
 InputManager="*res://scripts/autoloads/input_manager.gd"
+GameManager="*res://scripts/autoloads/game_manager.gd"
 
 [editor_plugins]
 
@@ -28,8 +29,15 @@ enabled=PackedStringArray("res://addons/SimpleFormatOnSave/plugin.cfg", "res://a
 [global_group]
 
 player_inventory=""
-unit=""
 navigation=""
+zombie=""
+enemy=""
+world=""
+unit=""
+zombies=""
+enemies=""
+miscellaneous=""
+miscellaneum=""
 
 [input]
 
@@ -101,6 +109,7 @@ command={
 2d_physics/layer_2="ZombieVision"
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="EnemyVision"
+2d_physics/layer_5="Projectile"
 
 [navigation]
 

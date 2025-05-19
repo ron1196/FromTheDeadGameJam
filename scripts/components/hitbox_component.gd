@@ -4,13 +4,13 @@ extends Area2D
 
 
 func _init() -> void:
-	monitoring = true
-	monitorable = false
+	monitoring = false
+	monitorable = true
 
 
 func enable() -> void:
-	set_deferred("monitoring", true)
-	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
+	set_deferred("monitorable", true)
 
 
 func disable() -> void:

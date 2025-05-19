@@ -26,6 +26,7 @@ nav_agent = NodePath("Navigation")
 state_machine = NodePath("StateMachine")
 movable = NodePath("Movable")
 floating_damage_indicator_scene = ExtResource("3_xwavj")
+max_distance_from_start = 50.0
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("3_4ra3w")
@@ -33,7 +34,8 @@ max_health = 50
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 16
+monitorable = false
 script = ExtResource("4_5uy6h")
 health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://b3fq4wf352f8o"

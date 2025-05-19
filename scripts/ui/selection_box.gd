@@ -48,7 +48,7 @@ func _draw():
 func select_units_in_area(start: Vector2, end: Vector2):
 	var rect: Rect2 = Rect2(start, end - start).abs()
 
-	for unit in get_tree().get_nodes_in_group(Globals.UNIT_GROUP):
+	for unit in get_tree().get_nodes_in_group(Globals.GROUP_UNIT):
 		if rect.has_point(unit.global_position):
 			unit.select() # You'll need to implement this method on your units
 		else:

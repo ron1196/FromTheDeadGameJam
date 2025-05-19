@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3a0ti6bwdhbi"]
+
+[ext_resource type="Script" uid="uid://ctdrpjgqt2dgu" path="res://units/body_part.gd" id="1_ugln5"]
+[ext_resource type="Resource" uid="uid://ci645dkx1jn71" path="res://units/basic_head.tres" id="2_7v0qe"]
+[ext_resource type="Script" uid="uid://bsbe303qwd2f2" path="res://scripts/interfaces/trait.gd" id="3_8vuef"]
+[ext_resource type="Texture2D" uid="uid://chr7sxf54qjm6" path="res://units/enemy_generic/bombi/head/bombi_head.png" id="3_a0ajc"]
+[ext_resource type="Script" uid="uid://bn2lm2uhijfs3" path="res://units/body_anchor.gd" id="4_5rbjf"]
+[ext_resource type="Resource" uid="uid://bjrcff6esskro" path="res://traits/self_destruct.tres" id="4_i5t42"]
+
+[node name="BombiHead" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ugln5")
+body_type = 3
+attributes = ExtResource("2_7v0qe")
+traits = Array[ExtResource("3_8vuef")]([ExtResource("4_i5t42")])
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-1, -6)
+texture = ExtResource("3_a0ajc")
+
+[node name="Torso" type="Marker2D" parent="."]
+position = Vector2(0, 9)
+rotation = 1.5708
+gizmo_extents = 15.0
+script = ExtResource("4_5rbjf")
+connected_to_type = 2

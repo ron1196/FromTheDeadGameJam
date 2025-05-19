@@ -6,12 +6,18 @@ extends Area2D
 
 
 func _init() -> void:
-	monitoring = false
+	monitoring = true
 	monitorable = true
+	area_entered.connect(_on_area_entered)
+
+
+func _on_area_entered(hit: HitboxComponent):
+	print(get_parent().name + " " + hit.name)
+	health_component.damage(INF)
 
 
 func enable() -> void:
-	set_deferred("monitoring", false)
+	set_deferred("monitoring", true)
 	set_deferred("monitorable", true)
 
 
