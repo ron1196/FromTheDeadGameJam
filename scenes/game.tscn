@@ -155,32 +155,32 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="UI/ControlsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "🖱️ Left Click + Drag: Select zombies"
+text = "Left Click + Drag: Select zombies"
 
 [node name="Label2" type="Label" parent="UI/ControlsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "🖱️ Left Click: Cancel selection"
+text = "Left Click: Cancel selection"
 
 [node name="Label3" type="Label" parent="UI/ControlsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "🖱️ Right Click – Command"
+text = "Right Click – Command"
 
 [node name="Label4" type="Label" parent="UI/ControlsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "🎥 W / A / S / D – Move camera"
+text = "W / A / S / D – Move camera"
 
 [node name="Label6" type="Label" parent="UI/ControlsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "🖱️ Ctrl + Scroll Wheel – Zoom in/out"
+text = "Ctrl + Scroll Wheel – Zoom in/out"
 
 [node name="Label7" type="Label" parent="UI/ControlsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "⚙️ 'B' – Builder (near your cave)"
+text = "'B' – Builder (near your cave)"
 
 [node name="NotificationPanel" type="PanelContainer" parent="UI"]
 anchors_preset = 2
