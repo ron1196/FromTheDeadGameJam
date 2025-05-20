@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dr5b4cdpdvedx"]
 
 [ext_resource type="Script" uid="uid://ctdrpjgqt2dgu" path="res://units/body_part.gd" id="1_qi6m1"]
-[ext_resource type="Resource" uid="uid://dlj2ju4nelx2x" path="res://units/basic_leg.tres" id="2_imam6"]
+[ext_resource type="Resource" uid="uid://cno8b0ecervc7" path="res://attributes/panda_leg_attributes.tres" id="2_qanyc"]
 [ext_resource type="Texture2D" uid="uid://bmkgyhoaer4oe" path="res://units/enemy_generic/panda/panda_leg/panda_leg.png" id="3_ecoj7"]
 [ext_resource type="Script" uid="uid://bn2lm2uhijfs3" path="res://units/body_anchor.gd" id="4_t6bj0"]
 
@@ -9,7 +9,7 @@
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_qi6m1")
 body_type = 1
-attributes = ExtResource("2_imam6")
+attributes = ExtResource("2_qanyc")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://hc0x3djrfnxf"]
+
+[ext_resource type="Script" uid="uid://cdlud65t2jgk2" path="res://scripts/inventory/item_data.gd" id="1_6nn7h"]
+[ext_resource type="Texture2D" uid="uid://bve4l4j825xra" path="res://units/enemy_generic/panda/panda_torso/texture_panda_torso.png" id="1_tv71e"]
+[ext_resource type="PackedScene" uid="uid://dwnyjx0pcux7s" path="res://units/enemy_generic/panda/panda_torso/scene_panda_torso.tscn" id="2_2tnya"]
+
+[resource]
+script = ExtResource("1_6nn7h")
+name = "Panda Torso"
+icon = ExtResource("1_tv71e")
+stack_size = 64
+scene = ExtResource("2_2tnya")
+metadata/_custom_type_script = "uid://cdlud65t2jgk2"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3 uid="uid://yj51xxjp24s2"]
+
+[ext_resource type="Script" uid="uid://3a4ncu328k08" path="res://loot_entries/loot_entry.gd" id="1_3p0eb"]
+[ext_resource type="Resource" uid="uid://1kssgc0acege" path="res://items/bombi_head.tres" id="2_jukb2"]
+[ext_resource type="PackedScene" uid="uid://55jo6xkc7eq" path="res://units/enemy_generic/bombi/scene_visual_bombi.tscn" id="4_gipxb"]
+[ext_resource type="Script" uid="uid://clod4camffce0" path="res://enemies/enemy_data.gd" id="5_vr2fn"]
+
+[sub_resource type="Resource" id="Resource_2qgwt"]
+script = ExtResource("1_3p0eb")
+item = ExtResource("2_jukb2")
+amount = 1
+chance = 0.75
+metadata/_custom_type_script = "uid://3a4ncu328k08"
+
+[resource]
+script = ExtResource("5_vr2fn")
+visual_scene = ExtResource("4_gipxb")
+loot_entries = Array[ExtResource("1_3p0eb")]([SubResource("Resource_2qgwt")])
+metadata/_custom_type_script = "uid://clod4camffce0"

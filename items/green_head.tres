@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://7xdv6x4fmr5l"]
+
+[ext_resource type="Texture2D" uid="uid://c5ibe2fe4y8vw" path="res://units/enemy_generic/green_guy/green_head/texture.png" id="1_r8wk8"]
+[ext_resource type="PackedScene" uid="uid://be3vf67lhwgjy" path="res://units/enemy_generic/green_guy/green_head/scene.tscn" id="2_tmx3o"]
+[ext_resource type="Script" uid="uid://cdlud65t2jgk2" path="res://scripts/inventory/item_data.gd" id="3_jf1of"]
+
+[resource]
+script = ExtResource("3_jf1of")
+name = "Green Head"
+icon = ExtResource("1_r8wk8")
+stack_size = 64
+scene = ExtResource("2_tmx3o")
+metadata/_custom_type_script = "uid://cdlud65t2jgk2"

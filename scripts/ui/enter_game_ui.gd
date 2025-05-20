@@ -14,8 +14,11 @@ func _exit_tree():
 
 
 func _input(event: InputEvent) -> void:
+	if visible and event.is_action_pressed("exit"):
+		visible = false
+
 	if event.is_action_pressed(action_string_value):
-		visible = !visible;
+		visible = !visible
 
 
 func _on_visibility_changed() -> void:

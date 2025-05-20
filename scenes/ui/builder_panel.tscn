@@ -1,0 +1,178 @@
+[gd_scene load_steps=13 format=3 uid="uid://52j5n6pfbdrv"]
+
+[ext_resource type="Script" uid="uid://f25afx7wjhbi" path="res://scripts/ui/enter_game_ui.gd" id="1_bit56"]
+[ext_resource type="Script" uid="uid://p5n4qnpctfi3" path="res://scripts/ui/zombie_builder/zombie_builder.gd" id="2_l3eww"]
+[ext_resource type="Script" uid="uid://doe5ge3hl621u" path="res://scripts/ui/zombie_builder/zombie_preview.gd" id="3_6whoi"]
+[ext_resource type="PackedScene" uid="uid://chvfvtcch85ar" path="res://scenes/zombie.tscn" id="4_ilgxb"]
+[ext_resource type="Script" uid="uid://c4iot7uiy7vdh" path="res://scripts/ui/zombie_builder/attributes_ui.gd" id="5_el76e"]
+[ext_resource type="PackedScene" uid="uid://cxevor61mdhtc" path="res://scenes/ui/grid_slot_ui.tscn" id="7_psnaa"]
+[ext_resource type="Script" uid="uid://cdlud65t2jgk2" path="res://scripts/inventory/item_data.gd" id="8_6whoi"]
+[ext_resource type="Script" uid="uid://2e5oex0p6y5w" path="res://scripts/inventory/inventory.gd" id="9_ckxre"]
+[ext_resource type="Resource" uid="uid://7xdv6x4fmr5l" path="res://items/green_head.tres" id="9_ilgxb"]
+[ext_resource type="Resource" uid="uid://dvtjery1cocsn" path="res://items/green_torso.tres" id="10_el76e"]
+[ext_resource type="Resource" uid="uid://c1xiwsha0ovfy" path="res://items/green_leg.tres" id="11_ek7sv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvuet"]
+bg_color = Color(0.270588, 0.266667, 0.309804, 0.678431)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.807843)
+
+[node name="BuilderPanel" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -200.0
+offset_right = 275.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_kvuet")
+script = ExtResource("1_bit56")
+
+[node name="VerticallyContainer" type="VBoxContainer" parent="."]
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_l3eww")
+
+[node name="HorizontallyHeaders" type="HBoxContainer" parent="VerticallyContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonsMargin" type="MarginContainer" parent="VerticallyContainer/HorizontallyHeaders"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 0
+
+[node name="Buttons" type="VBoxContainer" parent="VerticallyContainer/HorizontallyHeaders/ButtonsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Build" type="Button" parent="VerticallyContainer/HorizontallyHeaders/ButtonsMargin/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Build
+"
+
+[node name="Random" type="Button" parent="VerticallyContainer/HorizontallyHeaders/ButtonsMargin/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Random"
+
+[node name="Reset" type="Button" parent="VerticallyContainer/HorizontallyHeaders/ButtonsMargin/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reset"
+
+[node name="ZombiePreviewContainer" type="Control" parent="VerticallyContainer/HorizontallyHeaders"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_6whoi")
+
+[node name="Center" type="CenterContainer" parent="VerticallyContainer/HorizontallyHeaders/ZombiePreviewContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ZombiePreview" parent="VerticallyContainer/HorizontallyHeaders/ZombiePreviewContainer" instance=ExtResource("4_ilgxb")]
+unique_name_in_owner = true
+scale = Vector2(4, 4)
+
+[node name="AttributesUIMargin" type="MarginContainer" parent="VerticallyContainer/HorizontallyHeaders"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 25
+
+[node name="AttributesUI" type="VBoxContainer" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("5_el76e")
+
+[node name="Intelligence" type="HBoxContainer" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI/Intelligence"]
+layout_mode = 2
+text = "Intelligence: "
+
+[node name="Value" type="Label" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI/Intelligence"]
+layout_mode = 2
+text = "0"
+
+[node name="Attack" type="HBoxContainer" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI/Attack"]
+layout_mode = 2
+text = "Attack: "
+
+[node name="Value" type="Label" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI/Attack"]
+layout_mode = 2
+text = "0"
+
+[node name="Speed" type="HBoxContainer" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI/Speed"]
+layout_mode = 2
+text = "Speed: "
+
+[node name="Value" type="Label" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI/Speed"]
+layout_mode = 2
+text = "0"
+
+[node name="Endurance" type="HBoxContainer" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI/Endurance"]
+layout_mode = 2
+text = "Endurance: "
+
+[node name="Value" type="Label" parent="VerticallyContainer/HorizontallyHeaders/AttributesUIMargin/AttributesUI/Endurance"]
+layout_mode = 2
+text = "0"
+
+[node name="MarginInventory" type="MarginContainer" parent="VerticallyContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Inventory" type="GridContainer" parent="VerticallyContainer/MarginInventory" groups=["player_inventory"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 8
+script = ExtResource("9_ckxre")
+grid_size = Vector2i(8, 3)
+grid_slot_size = Vector2(48, 48)
+grid_slot_ui_scene = ExtResource("7_psnaa")
+unlimited_items = Array[ExtResource("8_6whoi")]([ExtResource("9_ilgxb"), ExtResource("10_el76e"), ExtResource("11_ek7sv")])
+
+[connection signal="pressed" from="VerticallyContainer/HorizontallyHeaders/ButtonsMargin/Buttons/Build" to="VerticallyContainer" method="_on_build_pressed"]
+[connection signal="pressed" from="VerticallyContainer/HorizontallyHeaders/ButtonsMargin/Buttons/Reset" to="VerticallyContainer" method="_on_reset_pressed"]
+[connection signal="resized" from="VerticallyContainer/HorizontallyHeaders/ZombiePreviewContainer" to="VerticallyContainer/HorizontallyHeaders/ZombiePreviewContainer" method="_on_resized"]
+[connection signal="item_selected" from="VerticallyContainer/MarginInventory/Inventory" to="VerticallyContainer" method="_on_inventory_item_selected"]

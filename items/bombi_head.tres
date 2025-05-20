@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://1kssgc0acege"]
+
+[ext_resource type="Texture2D" uid="uid://chr7sxf54qjm6" path="res://units/enemy_generic/bombi/head/bombi_head.png" id="1_ccr07"]
+[ext_resource type="Script" uid="uid://cdlud65t2jgk2" path="res://scripts/inventory/item_data.gd" id="1_rer18"]
+[ext_resource type="PackedScene" uid="uid://c3a0ti6bwdhbi" path="res://units/enemy_generic/bombi/head/scene_bombi_head.tscn" id="2_asafo"]
+
+[resource]
+script = ExtResource("1_rer18")
+name = "Bombi Head"
+icon = ExtResource("1_ccr07")
+stack_size = 64
+scene = ExtResource("2_asafo")
+metadata/_custom_type_script = "uid://cdlud65t2jgk2"

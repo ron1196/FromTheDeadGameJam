@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpo8wc14xkcgq"]
+
+[ext_resource type="Script" uid="uid://ch4dcfx3aapb5" path="res://scripts/ui/notification_ui_obj.gd" id="1_2n56k"]
+[ext_resource type="Texture2D" uid="uid://bp4k6gmkgd0n8" path="res://assets/icons/stone_axe.png" id="2_e7250"]
+
+[node name="NotificationUI" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1081.0
+offset_bottom = -582.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2n56k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ItemIcon" type="TextureRect" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_e7250")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StackSizeLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 2

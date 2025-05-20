@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://j2ru0deb5twj"]
 
-[ext_resource type="Script" uid="uid://c2wvvbphqg43w" path="res://scripts/units/zombie/zombie.gd" id="1_qj7gk"]
+[ext_resource type="Script" uid="uid://c2wvvbphqg43w" path="res://units/zombie/zombie.gd" id="1_qj7gk"]
 [ext_resource type="Texture2D" path="res://assets/selected.png" id="2_4ix6h"]
 [ext_resource type="PackedScene" uid="uid://dxbrlpf8oeijb" path="res://units/enemy_generic/green_guy/green_torso/green_torso.tscn" id="2_d2dwg"]
 [ext_resource type="PackedScene" uid="uid://ihfnh7x6rxo7" path="res://units/enemy_generic/green_guy/green_leg/scene.tscn" id="3_4ix6h"]

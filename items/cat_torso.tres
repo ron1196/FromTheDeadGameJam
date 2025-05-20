@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bnjjyvde6m8f0"]
+
+[ext_resource type="Texture2D" uid="uid://3apaxke4rdkn" path="res://units/enemy_generic/cat/cat_torso/cat_torso.png" id="1_26hoi"]
+[ext_resource type="PackedScene" uid="uid://bqhgrgsg3rng5" path="res://units/enemy_generic/cat/cat_torso/scene_cat_torso.tscn" id="2_4scpc"]
+[ext_resource type="Script" uid="uid://cdlud65t2jgk2" path="res://scripts/inventory/item_data.gd" id="3_yiouc"]
+
+[resource]
+script = ExtResource("3_yiouc")
+name = "Cat Head"
+icon = ExtResource("1_26hoi")
+stack_size = 64
+scene = ExtResource("2_4scpc")
+metadata/_custom_type_script = "uid://cdlud65t2jgk2"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://chvfvtcch85ar"]
 
-[ext_resource type="Script" uid="uid://c2wvvbphqg43w" path="res://scripts/units/zombie/zombie.gd" id="1_1vlb3"]
+[ext_resource type="Script" uid="uid://c2wvvbphqg43w" path="res://units/zombie/zombie.gd" id="1_1vlb3"]
 [ext_resource type="PackedScene" uid="uid://dmxdvu6tfxlge" path="res://scenes/floating_damage_indicator.tscn" id="2_ida1p"]
 [ext_resource type="Script" uid="uid://b3fq4wf352f8o" path="res://scripts/components/hurtbox_component.gd" id="3_jjlcg"]
 [ext_resource type="Script" uid="uid://cxu570an015xh" path="res://scripts/state_machine/state_machine.gd" id="3_xepks"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bkg0uwo8txvr" path="res://scripts/state_machine/attacking_state.gd" id="7_7pfmu"]
 [ext_resource type="Script" uid="uid://bn3vgmritde17" path="res://scripts/components/sight_component.gd" id="8_3fthk"]
 [ext_resource type="Script" uid="uid://bty6wyn6n62kv" path="res://scripts/components/health_component.gd" id="9_aetfh"]
-[ext_resource type="Script" uid="uid://33gclwgoh7tv" path="res://scripts/units/zombie/zombie_movable.gd" id="11_iblsu"]
+[ext_resource type="Script" uid="uid://33gclwgoh7tv" path="res://units/zombie/zombie_movable.gd" id="11_iblsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aetfh"]
 size = Vector2(35, 30)

@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dl7uixp8m1mys" path="res://units/enemy_generic/green_guy/green_torso/green_torso.png" id="1_bh0sy"]
 [ext_resource type="Script" uid="uid://ctdrpjgqt2dgu" path="res://units/body_part.gd" id="1_m8egf"]
-[ext_resource type="Resource" uid="uid://clg5467j0wmja" path="res://units/enemy_generic/green_guy/green_torso/attributes_green_torso.tres" id="2_fure5"]
+[ext_resource type="Resource" uid="uid://bow10rilknrq1" path="res://attributes/green_guy_torso_attributes.tres" id="2_eppyf"]
 [ext_resource type="Script" uid="uid://bn2lm2uhijfs3" path="res://units/body_anchor.gd" id="3_02bp1"]
 
 [node name="GreenTorso" type="Node2D"]
 script = ExtResource("1_m8egf")
 body_type = 2
-attributes = ExtResource("2_fure5")
+attributes = ExtResource("2_eppyf")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]

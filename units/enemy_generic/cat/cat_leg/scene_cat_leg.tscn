@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://di3w84pn0rb87"]
 
 [ext_resource type="Script" uid="uid://ctdrpjgqt2dgu" path="res://units/body_part.gd" id="1_642sm"]
-[ext_resource type="Resource" uid="uid://dlj2ju4nelx2x" path="res://units/basic_leg.tres" id="2_2pudf"]
+[ext_resource type="Resource" uid="uid://cq535030ab6g1" path="res://attributes/cat_leg_attributes.tres" id="2_642sm"]
 [ext_resource type="SpriteFrames" uid="uid://b8cr1yarn603f" path="res://units/enemy_generic/cat/sprite_frames_cat.tres" id="3_f22yb"]
 [ext_resource type="Script" uid="uid://bn2lm2uhijfs3" path="res://units/body_anchor.gd" id="4_2v0rh"]
 
@@ -9,7 +9,7 @@
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_642sm")
 body_type = 1
-attributes = ExtResource("2_2pudf")
+attributes = ExtResource("2_642sm")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]

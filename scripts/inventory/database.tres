@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://c3a0ti6bwdhbi" path="res://units/enemy_generic/bombi/head/scene_bombi_head.tscn" id="20_xb51d"]
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_kclfh"]
+resource_local_to_scene = false
+resource_name = ""
 id = "green_head"
 max_stack = 64
 name = "Green Head"
@@ -31,6 +33,8 @@ properties = {
 }
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_x7snd"]
+resource_local_to_scene = false
+resource_name = ""
 id = "green_leg"
 max_stack = 64
 name = "Green Leg"
@@ -40,6 +44,8 @@ properties = {
 }
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_ywykn"]
+resource_local_to_scene = false
+resource_name = ""
 id = "green_torso"
 max_stack = 64
 name = "Green Torso"
@@ -49,6 +55,8 @@ properties = {
 }
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_8gp4u"]
+resource_local_to_scene = false
+resource_name = ""
 id = "panda_torso"
 max_stack = 64
 name = "Panda Torso"
@@ -58,6 +66,8 @@ properties = {
 }
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_vryd6"]
+resource_local_to_scene = false
+resource_name = ""
 id = "panda_leg"
 max_stack = 64
 name = "Panda Leg"
@@ -67,6 +77,8 @@ properties = {
 }
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_6kpvc"]
+resource_local_to_scene = false
+resource_name = ""
 id = "panda_head"
 max_stack = 64
 name = "Panda Head"
@@ -76,6 +88,8 @@ properties = {
 }
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_8y7ib"]
+resource_local_to_scene = false
+resource_name = ""
 id = "cat_head"
 max_stack = 64
 name = "Cat Head"
@@ -85,6 +99,8 @@ properties = {
 }
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_kp02n"]
+resource_local_to_scene = false
+resource_name = ""
 id = "cat_torso"
 max_stack = 64
 name = "Cat Torso"
@@ -94,6 +110,8 @@ properties = {
 }
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_g68cj"]
+resource_local_to_scene = false
+resource_name = ""
 id = "cat_leg"
 max_stack = 64
 name = "Cat Leg"
@@ -103,6 +121,8 @@ properties = {
 }
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_kyhlq"]
+resource_local_to_scene = false
+resource_name = ""
 id = "bombi_head"
 max_stack = 64
 name = "Bombi Head"
@@ -112,4 +132,6 @@ properties = {
 }
 
 [resource]
-items = Array[ItemDefinition]([SubResource("ItemDefinition_kclfh"), SubResource("ItemDefinition_x7snd"), SubResource("ItemDefinition_ywykn"), SubResource("ItemDefinition_8gp4u"), SubResource("ItemDefinition_vryd6"), SubResource("ItemDefinition_6kpvc"), SubResource("ItemDefinition_8y7ib"), SubResource("ItemDefinition_kp02n"), SubResource("ItemDefinition_g68cj"), SubResource("ItemDefinition_kyhlq")])
+resource_local_to_scene = false
+resource_name = ""
+items = [SubResource("ItemDefinition_kclfh"), SubResource("ItemDefinition_x7snd"), SubResource("ItemDefinition_ywykn"), SubResource("ItemDefinition_8gp4u"), SubResource("ItemDefinition_vryd6"), SubResource("ItemDefinition_6kpvc"), SubResource("ItemDefinition_8y7ib"), SubResource("ItemDefinition_kp02n"), SubResource("ItemDefinition_g68cj"), SubResource("ItemDefinition_kyhlq")]

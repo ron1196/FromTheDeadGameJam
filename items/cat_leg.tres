@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cb6mwa8tbv5h6"]
+
+[ext_resource type="Texture2D" uid="uid://cxmtwxkoakgo2" path="res://units/enemy_generic/cat/cat_leg/cat_leg.png" id="1_yeiyr"]
+[ext_resource type="PackedScene" uid="uid://di3w84pn0rb87" path="res://units/enemy_generic/cat/cat_leg/scene_cat_leg.tscn" id="2_elnuv"]
+[ext_resource type="Script" uid="uid://cdlud65t2jgk2" path="res://scripts/inventory/item_data.gd" id="3_nnpuc"]
+
+[resource]
+script = ExtResource("3_nnpuc")
+name = "Cat Leg"
+icon = ExtResource("1_yeiyr")
+stack_size = 64
+scene = ExtResource("2_elnuv")
+metadata/_custom_type_script = "uid://cdlud65t2jgk2"

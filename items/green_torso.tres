@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dvtjery1cocsn"]
+
+[ext_resource type="Texture2D" uid="uid://dl7uixp8m1mys" path="res://units/enemy_generic/green_guy/green_torso/green_torso.png" id="1_blqtt"]
+[ext_resource type="PackedScene" uid="uid://dxbrlpf8oeijb" path="res://units/enemy_generic/green_guy/green_torso/green_torso.tscn" id="2_ha6ee"]
+[ext_resource type="Script" uid="uid://cdlud65t2jgk2" path="res://scripts/inventory/item_data.gd" id="3_ddptw"]
+
+[resource]
+script = ExtResource("3_ddptw")
+name = "Green Torso"
+icon = ExtResource("1_blqtt")
+stack_size = 64
+scene = ExtResource("2_ha6ee")
+metadata/_custom_type_script = "uid://cdlud65t2jgk2"

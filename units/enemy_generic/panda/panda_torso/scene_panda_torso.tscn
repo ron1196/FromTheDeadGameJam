@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwnyjx0pcux7s"]
 
 [ext_resource type="Script" uid="uid://ctdrpjgqt2dgu" path="res://units/body_part.gd" id="1_7fh45"]
-[ext_resource type="Resource" uid="uid://dkcvtwg2tk5lh" path="res://units/enemy_generic/panda/panda_torso/attributes_panda_torso.tres" id="2_7fh45"]
+[ext_resource type="Resource" uid="uid://cbi3bliuik2s6" path="res://attributes/panda_torso_attributes.tres" id="2_kgnhk"]
 [ext_resource type="Texture2D" uid="uid://bve4l4j825xra" path="res://units/enemy_generic/panda/panda_torso/texture_panda_torso.png" id="3_f34tu"]
 [ext_resource type="Script" uid="uid://bn2lm2uhijfs3" path="res://units/body_anchor.gd" id="4_qcmpc"]
 
@@ -9,7 +9,7 @@
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_7fh45")
 body_type = 2
-attributes = ExtResource("2_7fh45")
+attributes = ExtResource("2_kgnhk")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
