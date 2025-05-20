@@ -1,6 +1,5 @@
 extends VBoxContainer
 
-@export var spawn_unit_node: Node
 @export var base_area: Node2D
 
 @onready var inventory: GridInventory
@@ -38,7 +37,7 @@ func _on_build_pressed() -> void:
 	zombie.position = base_area.global_position + random_pos_in_area
 	zombie.scale = Vector2(1, 1)
 	zombie.name = name_gen.new_name()[randi() % 2]
-	spawn_unit_node.add_child(zombie)
+	GameManager.zombies.add_child(zombie)
 	zombie.disable_statute()
 
 

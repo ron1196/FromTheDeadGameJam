@@ -86,7 +86,7 @@ func _on_health_changed(amount: int, type: HealthComponent.Types) -> void:
 		scene.set_random_position_x(-12, 12)
 		scene.set_random_position_y(-10, -20)
 		scene.global_position += global_position
-		GameManager.miscellaneous.add_child(scene)
+		GameManager.others.add_child(scene)
 		scene.set_damage(amount, type)
 
 

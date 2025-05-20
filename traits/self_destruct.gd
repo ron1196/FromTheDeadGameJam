@@ -12,7 +12,7 @@ func activate(unit: Unit) -> void:
 
 	activated = true
 
-	var misc: Node = GameManager.miscellaneous
+	var misc: Node = GameManager.others
 	var explosion: Node2D = scene_explosion.instantiate()
 	explosion.global_position = unit.global_position
 	misc.add_child(explosion)

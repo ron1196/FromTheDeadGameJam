@@ -45,7 +45,7 @@ func _on_attack_timer_timeout() -> void:
 		return
 
 	var attack_damage: float = _get_attack_damage()
-	target.health_component.damage(attack_damage)
+	target.health_component.damage(attack_damage as int)
 
 
 func _get_attack_damage() -> float:

@@ -1,3 +1,4 @@
+@tool
 extends BodyPart
 
 const ANIMATION_EXPLODE_NAME: String = "explode"

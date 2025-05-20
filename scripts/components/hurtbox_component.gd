@@ -11,9 +11,8 @@ func _init() -> void:
 	area_entered.connect(_on_area_entered)
 
 
-func _on_area_entered(hit: HitboxComponent):
-	print(get_parent().name + " " + hit.name)
-	health_component.damage(INF)
+func _on_area_entered(_hit: HitboxComponent):
+	health_component.damage(int(INF))
 
 
 func enable() -> void:
