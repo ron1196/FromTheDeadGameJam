@@ -31,8 +31,13 @@ func _on_died() -> void:
 
 func _calculate_attributes() -> void:
 	var tmp: BodyPartAttributes = BodyPartAttributes.new()
-	tmp.endurance = 10
+
+	for attribute: BodyPartAttributes in enemy_data.body_pars_attributes:
+		tmp.add(attribute)
+
 	attributes = tmp
+
+	print(name + " " + str(attributes))
 
 
 func get_nodes_to_change_material() -> Array[Node2D]:

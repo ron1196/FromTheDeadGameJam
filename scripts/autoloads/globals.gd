@@ -1,6 +1,6 @@
 extends Node
 
-const DEBUG: bool = true
+const DEBUG: bool = false
 
 const GROUP_BASE_AREA: String = "base_area"
 const GROUP_WORLD: String = "world"

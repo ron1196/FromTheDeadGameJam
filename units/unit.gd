@@ -12,6 +12,7 @@ const WHITE_FLASH := "res://shaders/flash.tres"
 @export var state_machine: StateMachine
 @export var movable: Movable
 @export var base_speed: float = 10
+@export var base_hp: float = 20
 
 @export var floating_damage_indicator_scene: PackedScene
 @export var is_static: bool = false
@@ -52,7 +53,7 @@ func _calculate_on_new_parts() -> void:
 
 
 func _apply_attributes() -> void:
-	health_component.max_health += attributes.endurance * 10
+	health_component.max_health = base_hp + attributes.endurance * 10
 	nav_agent.max_speed = base_speed * max(1, attributes.speed)
 
 

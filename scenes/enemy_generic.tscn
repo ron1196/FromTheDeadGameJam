@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://2ykqijxq7pup"]
 
-[ext_resource type="Script" uid="uid://c541x316jnhtp" path="res://units/enemy/enemy_generic.gd" id="1_royn2"]
+[ext_resource type="Script" uid="uid://c541x316jnhtp" path="res://units/enemy_generic/enemy_generic.gd" id="1_royn2"]
 [ext_resource type="PackedScene" uid="uid://dmxdvu6tfxlge" path="res://scenes/floating_damage_indicator.tscn" id="2_4dh7n"]
 [ext_resource type="Script" uid="uid://bty6wyn6n62kv" path="res://scripts/components/health_component.gd" id="3_pgxdf"]
 [ext_resource type="Script" uid="uid://b3fq4wf352f8o" path="res://scripts/components/hurtbox_component.gd" id="4_8hjqd"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://clmr43kvgax76" path="res://scripts/state_machine/engaging_position_state.gd" id="8_v03ay"]
 [ext_resource type="Script" uid="uid://cx03y42e27l40" path="res://scripts/state_machine/engaging_target_state.gd" id="9_ky433"]
 [ext_resource type="Script" uid="uid://bkg0uwo8txvr" path="res://scripts/state_machine/attacking_state.gd" id="10_7l737"]
-[ext_resource type="Script" uid="uid://dj1tdp3unnmro" path="res://units/enemy/enemy_movable.gd" id="11_ykgao"]
+[ext_resource type="Script" uid="uid://dj1tdp3unnmro" path="res://units/enemy_generic/enemy_movable.gd" id="11_ykgao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
 size = Vector2(35, 30)

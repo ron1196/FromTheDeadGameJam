@@ -175,7 +175,7 @@ text = "🎥 W / A / S / D – Move camera"
 [node name="Label6" type="Label" parent="UI/ControlsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "🖱️ Scroll Wheel – Zoom in/out"
+text = "🖱️ Ctrl + Scroll Wheel – Zoom in/out"
 
 [node name="Label7" type="Label" parent="UI/ControlsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
