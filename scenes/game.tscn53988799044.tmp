@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://dbmg4vtskbydd"]
+[gd_scene load_steps=16 format=4 uid="uid://dbmg4vtskbydd"]
 
 [ext_resource type="TileSet" uid="uid://cxdx6hv6j7erk" path="res://assets/tilesets/forest_/forest.tres" id="1_264po"]
 [ext_resource type="Script" uid="uid://cyotbyqgvyfrt" path="res://scripts/game.gd" id="1_vtaks"]
 [ext_resource type="Script" uid="uid://b004ixhson8lx" path="res://scripts/assign_group.gd" id="2_dinhu"]
 [ext_resource type="Script" uid="uid://dbheugppc4fqh" path="res://scripts/enemy_generic_spawner.gd" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://2ykqijxq7pup" path="res://scenes/enemy_generic.tscn" id="4_rysoc"]
 [ext_resource type="Resource" uid="uid://yj51xxjp24s2" path="res://enemies/bombi.tres" id="4_u5sy4"]
 [ext_resource type="Resource" uid="uid://bgwkn708claxs" path="res://enemies/cat.tres" id="5_gee14"]
 [ext_resource type="Resource" uid="uid://badllolvjxgk" path="res://enemies/panda.tres" id="6_kvpfn"]
@@ -55,6 +56,10 @@ group = "zombie"
 [node name="Enemies" type="Node" parent="World" groups=["enemies"]]
 script = ExtResource("2_dinhu")
 
+[node name="EnemyGeneric" parent="World/Enemies" instance=ExtResource("4_rysoc")]
+position = Vector2(124, 359)
+enemy_data = ExtResource("4_u5sy4")
+
 [node name="Others" type="Node" parent="World" groups=["others"]]
 script = ExtResource("2_dinhu")
 group = "other"
@@ -79,12 +84,14 @@ script = ExtResource("3_p57ef")
 enemy_data = ExtResource("4_u5sy4")
 spawn_count = 2
 spawn_after_kill_delay = 7.0
+auto_spawn = false
 
 [node name="BombiSpawner2" type="Marker2D" parent="World/Others"]
-position = Vector2(-142, -382)
+position = Vector2(292, -169)
 script = ExtResource("3_p57ef")
 enemy_data = ExtResource("4_u5sy4")
 spawn_after_kill_delay = 3.0
+auto_spawn = false
 spawn_random_offset = 0.0
 
 [node name="PandaSpawner" type="Marker2D" parent="World/Others"]
@@ -93,6 +100,7 @@ script = ExtResource("3_p57ef")
 enemy_data = ExtResource("6_kvpfn")
 spawn_count = 2
 spawn_after_kill_delay = 2.0
+auto_spawn = false
 
 [node name="PandaSpawner2" type="Marker2D" parent="World/Others"]
 position = Vector2(465, -438)
@@ -100,6 +108,7 @@ script = ExtResource("3_p57ef")
 enemy_data = ExtResource("6_kvpfn")
 spawn_count = 2
 spawn_after_kill_delay = 5.0
+auto_spawn = false
 spawn_random_offset = 70.0
 
 [node name="CatSpawner" type="Marker2D" parent="World/Others"]
@@ -107,6 +116,7 @@ position = Vector2(-94, 175)
 script = ExtResource("3_p57ef")
 enemy_data = ExtResource("5_gee14")
 spawn_after_kill_delay = 3.0
+auto_spawn = false
 spawn_random_offset = 30.0
 
 [node name="CatSpawner2" type="Marker2D" parent="World/Others"]
@@ -115,6 +125,7 @@ script = ExtResource("3_p57ef")
 enemy_data = ExtResource("5_gee14")
 spawn_count = 2
 spawn_after_kill_delay = 3.0
+auto_spawn = false
 spawn_random_offset = 30.0
 
 [node name="NavigationRegion" type="NavigationRegion2D" parent="World"]

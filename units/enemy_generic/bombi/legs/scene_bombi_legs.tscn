@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7b6aam6khofe"]
+
+[ext_resource type="Script" uid="uid://ctdrpjgqt2dgu" path="res://units/body_part.gd" id="1_i22v8"]
+[ext_resource type="Resource" uid="uid://gl33x3uh01ox" path="res://attributes/bombi_legs_attributes.tres" id="2_x1agf"]
+[ext_resource type="Texture2D" uid="uid://bjdpjm5l30xb6" path="res://units/enemy_generic/bombi/legs/bombi_legs.png" id="3_x1agf"]
+[ext_resource type="Script" uid="uid://bn2lm2uhijfs3" path="res://units/body_anchor.gd" id="5_7slgy"]
+
+[node name="BombiLegs" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_i22v8")
+body_type = 3
+attributes = ExtResource("2_x1agf")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -6)
+texture = ExtResource("3_x1agf")
+
+[node name="Torso" type="Marker2D" parent="."]
+position = Vector2(0, 9)
+rotation = -1.5708
+gizmo_extents = 15.0
+script = ExtResource("5_7slgy")
+connected_to_type = 2
+
+[node name="GTraits" type="Node" parent="."]

@@ -16,5 +16,3 @@ func activate(unit: Unit) -> void:
 	var explosion: Node2D = scene_explosion.instantiate()
 	explosion.global_position = unit.global_position
 	misc.add_child(explosion)
-
-	unit.queue_free()

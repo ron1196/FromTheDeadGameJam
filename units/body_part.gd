@@ -26,7 +26,6 @@ func get_traits() -> Array[int]:
 	var idxs: Array[int] = []
 	idxs.assign(range(traits.size()))
 	return idxs
-	#return traits.map(func(t: GTrait): return traits.find(t))
 
 
 func activate_trait(_unit: Unit, _gtrait_idx: int) -> bool:

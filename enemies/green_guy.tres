@@ -1,15 +1,13 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=14 format=3 uid="uid://cq3fgivis10wh"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=12 format=3 uid="uid://cq3fgivis10wh"]
 
-[ext_resource type="Script" uid="uid://c7xa5ufq3jfy8" path="res://units/body_part_attributes.gd" id="1_h2m15"]
+[ext_resource type="PackedScene" uid="uid://be3vf67lhwgjy" path="res://units/enemy_generic/green_guy/green_head/scene.tscn" id="1_hm0yr"]
 [ext_resource type="Script" uid="uid://3a4ncu328k08" path="res://loot_entries/loot_entry.gd" id="1_pq3pl"]
+[ext_resource type="PackedScene" uid="uid://dxbrlpf8oeijb" path="res://units/enemy_generic/green_guy/green_torso/green_torso.tscn" id="2_n4c6u"]
 [ext_resource type="Resource" uid="uid://7xdv6x4fmr5l" path="res://items/green_head.tres" id="2_pq3pl"]
-[ext_resource type="Resource" uid="uid://csh7cysno5xjj" path="res://attributes/green_guy_head_attributes.tres" id="2_wauj8"]
 [ext_resource type="Resource" uid="uid://dvtjery1cocsn" path="res://items/green_torso.tres" id="3_8h5t4"]
-[ext_resource type="Resource" uid="uid://sv1u0ssf6ij3" path="res://attributes/green_guy_leg_attributes.tres" id="3_qhtcp"]
-[ext_resource type="Resource" uid="uid://bow10rilknrq1" path="res://attributes/green_guy_torso_attributes.tres" id="4_70kkv"]
+[ext_resource type="PackedScene" uid="uid://ihfnh7x6rxo7" path="res://units/enemy_generic/green_guy/green_leg/scene.tscn" id="3_h2m15"]
 [ext_resource type="Resource" uid="uid://c1xiwsha0ovfy" path="res://items/green_leg.tres" id="4_pq3pl"]
 [ext_resource type="Script" uid="uid://clod4camffce0" path="res://enemies/enemy_data.gd" id="5_h2m15"]
-[ext_resource type="PackedScene" uid="uid://bda6m7jevx0x1" path="res://units/enemy_generic/green_guy/scene_visual_green_guy.tscn" id="6_pq3pl"]
 
 [sub_resource type="Resource" id="Resource_1ar4e"]
 script = ExtResource("1_pq3pl")
@@ -34,7 +32,6 @@ metadata/_custom_type_script = "uid://3a4ncu328k08"
 
 [resource]
 script = ExtResource("5_h2m15")
-visual_scene = ExtResource("6_pq3pl")
 loot_entries = Array[ExtResource("1_pq3pl")]([SubResource("Resource_1ar4e"), SubResource("Resource_s0687"), SubResource("Resource_nlasf")])
-body_pars_attributes = Array[ExtResource("1_h2m15")]([ExtResource("2_wauj8"), ExtResource("3_qhtcp"), ExtResource("4_70kkv"), ExtResource("3_qhtcp")])
+body_parts_scenes = Array[PackedScene]([ExtResource("1_hm0yr"), ExtResource("2_n4c6u"), ExtResource("3_h2m15"), ExtResource("3_h2m15")])
 metadata/_custom_type_script = "uid://clod4camffce0"

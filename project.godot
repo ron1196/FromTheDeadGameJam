@@ -22,10 +22,6 @@ Globals="*res://scripts/autoloads/globals.gd"
 InputManager="*res://scripts/autoloads/input_manager.gd"
 GameManager="*res://scripts/autoloads/game_manager.gd"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [editor]
 
 export/convert_text_resources_to_binary=false
